@@ -1,0 +1,14 @@
+{
+  "name": "ignore-me",
+  "description": "nothing to see here",
+  "version": "0.0.0",
+  "repository": "git://github.com/aaronblohowiak/Transitive.git",
+  "author": "Aaron Blohowiak <aaron.blohowiak@gmail.com>",
+  "directories": {
+    "lib": "."
+  },
+  "main": "index",
+  "engines": {
+    "node": "*"
+  }
+}
