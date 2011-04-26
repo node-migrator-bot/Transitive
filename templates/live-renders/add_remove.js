@@ -6,7 +6,7 @@ module.exports = {
 
     for(var i = obj.length - 1; i >= 0; i--){
       str = $templates.render(name, obj[i]);
-      data.objectsReferenced.push(obj[i]);
+      data.objectsReferenced[obj[i].id] = obj[i];
       //TODO: need to pre-package this template in!!!
       str = $templates.render("addRemoveItem", {id: obj[i].id, content: str});
       output = output + str;

@@ -1,4 +1,7 @@
-var templates = require('./templates');
+var templates = require('./templates'),
+    models = require('./models'),
+    collections = require('./collections'),
+    directories = require("./magic_values/directories");
 
 var Transitive = function(){};
 
@@ -9,13 +12,15 @@ Transitive.prototype = Tx;
 Tx.boot = function(obj, options){
   this.mixin(obj);
   
-  obj["$templates"] = templates.standard(options.root);
+  obj["$templates"] = templates.standard(options.root, {
+    directories: directories
+  });
 
   obj.server = connect.createServer(
-    connect.staticProvider(options.root + '/public')
+    connect.staticProvider(options.root + '/' + directories.public.path)
   );
   
-  options.port || (options.port = "3030")
+  options.port || (options.port = "3030");
   obj.server.listen(options.port);
 
   options.pi || (options.pi = {});
@@ -23,6 +28,8 @@ Tx.boot = function(obj, options){
 }
 
 Tx.mixin = function (obj){
+  obj.Models = models;
+  obj.Collections = collections;
   obj.sharedViews = require('shared-views');
   obj.connect = require("connect");
   obj.PushIt = require("push-it").PushIt;
@@ -33,7 +40,7 @@ Tx.mixin = function (obj){
   obj.u = obj._;
   obj.ViewBinding = templates.ViewBinding;
   obj.RenderContext = templates.RenderContext;
-  obj.render = templates.render;
+  obj.renderPage = templates.renderPage;
 }
 
 module.exports = Transitive;
