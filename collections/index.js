@@ -39,7 +39,10 @@ Stores.MemoryStore = {
 
       if(itemIndex > -1){
         items.splice(itemIndex, 1);
-        self.set(id, items, cb);
+        self.set(id, items, function(err, setResult){
+          if(err) return cb(err);
+          cb(null, obj);
+        });
       }
     });
   } 
@@ -62,6 +65,20 @@ module.exports.WrapStoreWithBroadcasting = function(store, pi){
       cb(null, obj);
     })
   };
+  
+  
+  broadcaster.remove = function(id, obj, cb){
+    store.remove(id, obj, function(err, obj){
+      if(err) return cb(err);
 
+      pi.publish(pi.channel(id),  {
+        action: "remove",
+        item: obj
+      });
+
+      cb(null, obj);
+    })
+  };
+  
   return broadcaster;
 }
