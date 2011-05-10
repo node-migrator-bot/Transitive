@@ -7,7 +7,7 @@ var sys = require('sys'),
     child_process = require('child_process'),
     exec = child_process.exec,
     argv = require('optimist').argv;
-    
+
 var directories = require(__dirname+"/magic_values/directories");
 
 createDirectories = function(){
@@ -46,13 +46,25 @@ copyDefaultFiles = function(){
   move('server.js ', '');
 }
 
-if(argv.mkdir && argv.mkdir != "false"){
-  console.log("Creating Directories");
-  createDirectories();
+var help = function(){
+  console.log("Commands: ")
+  for (var i = opts.length - 1; i >= 0; i--){
+    console.log("    --" +opts[i][0]," ", opts[i][1]);
+  };
 }
 
-if(argv.defaults && argv.defaults != "false"){
-  console.log("Creating defaults");
-  copyDefaultFiles();
-}
+var opts = [
+  ["mkdir", "create directories", createDirectories],
+  ["defaults", "create defaults", copyDefaultFiles],
+  ["h", "help", help]
+]
+
+var arg = '';
+
+for (var i = opts.length - 1; i >= 0; i--){
+  arg = argv[opts[i][0]];
+  if(arg && arg != "false"){
+    opts[i][2](arg)
+  }
+};
 

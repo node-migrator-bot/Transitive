@@ -8,7 +8,7 @@ Transitive.router = {
     this.callbacks[chan].push(callback);
   },
   trigger: function(chan, message){
-    console.log(message);
+    // console.log(message);
     var callbacks = this.callbacks[chan];
 
     if(callbacks && callbacks.length){

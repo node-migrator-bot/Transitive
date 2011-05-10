@@ -4,6 +4,16 @@ module.exports = {
     description: "raw templates",
     additionalInfo: "Nested subdirectories will also be automatically scanned for templates"
   },
+  "models" : {
+    path: "models",
+    description: "model definitions",
+    additionalInfo: "Domain model definitions that form the basic datatypes for your application"
+  },
+  "collections" : {
+    path: "collections",
+    description: "collection definitions",
+    additionalInfo: "first-class collection objects"
+  },
   "public": {
     path: "public",
     description: "static assets",
