@@ -1,8 +1,9 @@
 var Stores = {};
 Stores.MemoryStore = require('./stores/memory');
-Stores.RedisStore = require('./stores/redis');
-Stores.BroadcastingRedis = function(pi, client){
-  var redis = Stores.RedisStore(client);
+Stores.RedisJSONStore = require('./stores/redis_json');
+
+Stores.BroadcastingRedisJSON = function(pi, client){
+  var redis = Stores.RedisJSONStore(client);
   return wrapStoreWithBroadcasting(redis, pi);
 }
 
