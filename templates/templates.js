@@ -1,5 +1,5 @@
 //TODO: factor this out to use SubStack's find
-var glob = require('glob').globSync;
+var find = require('findit').findSync;
 
 var e = {};
 module.exports = e;
@@ -21,7 +21,8 @@ var filenamesForPaths = function(paths){
   }
 
   for (var i = paths.length - 1; i >= 0; i--){
-    filenames = filenames.concat( glob(paths[i] + "/*"));
+    console.log(find(paths[i]))
+    filenames = filenames.concat( find(paths[i] ));
   };
 
   return filenames;
