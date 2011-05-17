@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>all - Transitive.io Manual &amp; Documentation</title>
+  <link type="image/x-icon" rel="icon" href="/favicon.ico" />
+  <link type="image/x-icon" rel="shortcut icon" href="/favicon.ico" />
+  <link rel="stylesheet" href="assets/style.css" type="text/css" media="all" />
+  <link rel="stylesheet" href="assets/sh.css" type="text/css" media="all"/>
+</head>
+<body>
+  <div id="container">
+    <header>
+      <h1>Transitive.io Manual &amp; Documentation</h1>
+      <div id="gtoc">
+        <p><a href="index.html">Index</a> | <a href="all.html">View on single page</a></p>
+      </div>
+      <hr />
+    </header>
+    <div id="toc"><h2>Table Of Contents</h2><ul><li><a href="#overview">Overview</a><ul><li><a href="#key_Features">Key Features</a><ul><li><a href="#broadcasting_Data">Broadcasting Data</a></li><li><a href="#live_Renders">Live Renders</a></li></ul></li><li><a href="#additional_Benefits">Additional Benefits</a><ul><li><a href="#reasonable_Defaults">Reasonable Defaults</a></li><li><a href="#limited_Scope">Limited Scope</a></li><li><a href="#customizeability">Customizeability</a></li></ul></li></ul></li><li><a href="#initializing_Transitive.">Initializing Transitive.</a><ul><li><a href="#global_Mixins">Global Mixins</a></li><li><a href="#views_Assets">Views & Assets</a><ul><li><a href="#views_">Views:</a></li><li><a href="#assets_">Assets:</a></li></ul></li><li><a href="#initialize_Server">Initialize Server</a></li><li><a href="#setup_the_router">Setup the router</a></li></ul></li><li><a href="#views">Views</a><ul><li><a href="#transitive.Views">Transitive.Views</a><ul><li><a href="#render">render(templateName, data)</a></li><li><a href="#renderPage">renderPage(templateName, data, layoutName)</a></li></ul></li><li><a href="#liveRender">LiveRender</a><ul><li><a href="#prepare">prepare(templateName, data)</a></li><li><a href="#update">update(event)</a></li><li><a href="#name">name</a></li></ul></li><li><a href="#renderContext">RenderContext</a><ul><li><a href="#render">render(templateName, data)</a></li><li><a href="#renderLive">renderLive(name, templateName, data)</a></li></ul></li><li><a href="#viewBinding">ViewBinding</a></li></ul></li></ul><hr /></div>
+<h2 id="overview">Overview</h2>
+
+<p>Transitive has two key features:</p>
+
+<ul><li>Broadcasting data</li><li>Live Renders</li></ul>
+
+<p>Additionally, Transitive provides:</p>
+
+<ul><li>Reasonable Defaults</li><li>Limited Scope</li><li>Customizeability</li></ul>
+
+<h3 id="key_Features">Key Features</h3>
+
+<h4 id="broadcasting_Data">Broadcasting Data</h4>
+
+<p>Broadcasting data is the ability for your persistence layer to emit events when your data changes.  Transitive provides a very thin wrapper around <a href="http://github.com/aaronblohowiak/Push-It">Push-It</a></p>
+
+<h4 id="live_Renders">Live Renders</h4>
+
+<p>LiveRenders update the DOM when there is an update to the data. <a href="views.html#liveRender">LiveRender documentation</a> </p>
+
+<p>Calling a "publish" function when your data changes is easy.  Updating the DOM when you know the data has changed is a lot harder.  Transitive provides a lot of support for updaters.</p>
+
+<h3 id="additional_Benefits">Additional Benefits</h3>
+
+<h4 id="reasonable_Defaults">Reasonable Defaults</h4>
+
+<p>Transitive provides example broadcasting datastores (backed by redis) and example render updaters (replace, prepend, addRemove), but you should consider these examples and feel free to implement your own once you have a basic understanding of the system.</p>
+
+<h4 id="limited_Scope">Limited Scope</h4>
+
+<p>Transitive <em>does not</em> provide an ORM, permissions framework, django_admin-style interface or complex controller/router.  These things are welcome as plugins, and I am more than happy to provide support for anyone interested in building such things.</p>
+
+<h4 id="customizeability">Customizeability</h4>
+
+<p>The events your data broadcasts and the kinds of updates you'd like to make are both very application specific, so every effort has been made to streamline the process of creating custom broadcasting data stores and render updaters.  Transitive provides the structure and framework so you can focus on your application-specifc code</p>
+
+<p>I'd like to support an explicit plugin system soon.  If you have ideas about this, or would like to pitch in, please email me.</p>
+
+<hr />
+
+<h2 id="initializing_Transitive.">Initializing Transitive.</h2>
+
+<p>Transitive <code>initialize(scope, options)</code> does four things:</p>
+
+<ol><li>Global Mixins</li><li>Views &amp; Assets</li><li>Initialize Server </li><li>Setup the router</li></ol>
+
+<h3 id="global_Mixins">Global Mixins</h3>
+
+<p>Nobody likes pollution, but we all like convienence.</p>
+
+<p>Here are the items mixed in to the scope passed to initialize:</p>
+
+<p>  ...</p>
+
+<h3 id="views_amp_Assets">Views &amp; Assets</h3>
+
+<h4 id="views_">Views:</h4>
+
+<p>Sharing views between the server and the client is one of the key strengths of Transitive.  Out of the box, Transitive supports Haml-js and underscore templates.</p>
+
+<p>Transitive views are composed of:</p>
+
+<ul><li>Templates - Haml-js, underscore (ejs) or ( mustache ?) by default</li><li><a href="views.html#liveRender">LiveRenders</a> - Event handlers that update the page when your data changes.</li><li><a href="views.html#renderContext">RenderContext</a> &amp; ViewBindings - the glue that makes Templates and LiveRenders work. </li></ul>
+
+<p>Transitive gathers all of your templates and LiveRenders, compiles them and puts the resulting folder in the "generated" directory. By default, that's in options.root+"/public/generated/".   </p>
+
+<p>On the server, you'll have a <code>renderPage(templateName, locals, layoutName)</code> which will return your page, ready to go.  On the client side, you'll have <code>Transitive.render(templateName, locals)</code> which will return HTML ready to be inserted in the DOM (and more.. check out <a href="views.html">Transitive Views</a></p>
+
+<h4 id="assets_">Assets:</h4>
+
+<p>Coming soon, Transitive will include an asset packaging system.</p>
+
+<h3 id="initialize_Server">Initialize Server</h3>
+
+<p>Creates a new http server using connect. Adds a connect.staticProvider for the "public" path, options.root+"/public/" by default.  Starts the server listening on options.port, 3030 by default. Initializes Push-It with the server and options.pi. </p>
+
+<h3 id="setup_the_router">Setup the router</h3>
+
+<p>Transitive's router is currently very limited.</p>
+
+<hr />
+
+<h2 id="views">Views</h2>
+
+<p>To learn about how views are compiled, please read about the <a href="boot.html">boot process</a></p>
+
+<h3 id="transitive.Views">Transitive.Views</h3>
+
+<h4 id="render">render(templateName, data)</h4>
+
+<p>If called on the client:</p>
+
+<p><code>render</code> creates a RenderContext, and calls its <code>render(templateName, data)</code>.  It will return immediately with the html and set up a setTimeout() to process any new ViewBindings. </p>
+
+<p>If called on the server:</p>
+
+<p><code>render</code> will render <code>templateName</code> with <code>data</code>.  If <code>templateName</code> or any sub-templates (partials) call <code>renderLive</code>, an error will be thrown.  To render templates with layouts on the server, please use <code>renderPage</code>.</p>
+
+<h4 id="renderPage">renderPage(templateName, data, layoutName)</h4>
+
+<p>renderPage creates a new RenderContext and uses it to render templateName with data.locals.  It passes the result to </p>
+
+<h3 id="liveRender">LiveRender</h3>
+
+<p>By default, LiveRenders are stored in <code>options.root+"/live-renders"</code></p>
+
+<p>Automatic updating is provided by LiveRenders.  Each LiveRender has two functions: <code>prepare</code> and <code>update</code>.  Each LiveRender must have a unique <code>name</code> property.  </p>
+
+<p>To use a LiveRender, call <code>this.renderLive(name, templateName, data)</code> in a template.  See the <a href="#renderLive">renderLive</a> documentation.</p>
+
+<p>Here is an example LiveRender that prepends updates to the top of a DOM element, like you might use for an activity stream or chat room. To prepare the initial html, it renders <code>templateName</code> for each item in <code>data</code> and returns the resulting html.  When an update is received, it renders <code>templateName</code> with the new item and adds this html to the top of the element.</p>
+
+<pre><code>module.exports = {
+  name: "prepend",
+
+  prepare: function(templateName, data){
+    var itemsHtml = [];
+
+    for(var i = data.length - 1; i &gt;= 0; i--){
+      itemsHtml.push(this.render(templateName, data[i]));
+    }
+
+    return itemsHtml.join();
+  },
+
+  update: function(event){
+    this.element.prepend(Transitive.Views.render(this.templateName, event));
+  }
+}</code></pre>
+
+<h4 id="prepare">prepare(templateName, data)</h4>
+
+<p>called when the HTML is initially rendered.  At a minimum, you should return the rendered template with the data.  May be called on the server during the initial page load or on the client if the client calls <code>renderLive</code>.</p>
+
+<pre><code>  prepare: function(templateName, data){
+    return this.render(templateName, data);
+  }</code></pre>
+
+<p><code>this</code> is the current RenderContext.</p>
+
+<h4 id="update">update(event)</h4>
+
+<p>called when the server sends an event about data. modify the current page.</p>
+
+<p><code>this</code> will be a <a href="#viewBinding">ViewBinding</a></p>
+
+<h4 id="name">name</h4>
+
+<p>The (unique) name of the LiveRender</p>
+
+<h3 id="renderContext">RenderContext</h3>
+
+<p> You should not have to create a RenderContext. It is documented here because it is <code>this</code> in a template.  If you would like to render a template and you are <strong>not</strong> already within a template, please use <code>Transitive.Views.renderPage</code> or <code>Transitive.Views.render</code> if you are on the server or the client, respectively -- these functions will create a RenderContext for you and will handle any resulting ViewBindings. </p>
+
+<h4 id="render">render(templateName, data)</h4>
+
+<p>renders <code>templateName</code> with the given <code>data</code>, returning HTML.</p>
+
+<h4 id="renderLive">renderLive(name, templateName, data)</h4>
+
+<p>Gets the LiveRender with the name of <code>name</code> and calls it's <code>prepare(templateName, data)</code> to get the content. Then, it wraps that content with a new div that has a unique id and a class of <code>name</code>. Finally, it creates a new ViewBinding and adds it to <code>this.bindings</code>.  </p>
+
+<h3 id="viewBinding">ViewBinding</h3>
+
+<p> ViewBindings contain the information that ties together a DOM element, a template and an event handler to a stream of events from the server.  ViewBindings are automatically added to the RenderContext's bindings array when renderLive is called.</p>
+
+<ul><li><code>elementId</code>: id of a wrapper div automatically inserted around the output of your <code>prepare</code> function</li><li><code>templateName</code>: the same <code>templateName</code> that was passed your <code>prepare</code> function</li><li><code>objId</code>: contains the value of <code>data.id</code></li><li><code>name</code>: the name of the LiveRender that was called to create this ViewBinding.</li></ul>
+
+<p>On the client, it will also have:</p>
+
+<ul><li><code>element</code>: a cached <code>jQuery('#'+elementId)</code> for performance</li></ul>
+
+<p>You should not have to create a ViewBinding.  It is documented here as it is the <code>this</code> context for a LiveRender's <code>update</code> method.</p>
+  </div>
+</body>
+</html>

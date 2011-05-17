@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>boot - Transitive.io Manual &amp; Documentation</title>
+  <link type="image/x-icon" rel="icon" href="/favicon.ico" />
+  <link type="image/x-icon" rel="shortcut icon" href="/favicon.ico" />
+  <link rel="stylesheet" href="assets/style.css" type="text/css" media="all" />
+  <link rel="stylesheet" href="assets/sh.css" type="text/css" media="all"/>
+</head>
+<body>
+  <div id="container">
+    <header>
+      <h1>Transitive.io Manual &amp; Documentation</h1>
+      <div id="gtoc">
+        <p><a href="index.html">Index</a> | <a href="all.html">View on single page</a></p>
+      </div>
+      <hr />
+    </header>
+    <div id="toc"><h2>Table Of Contents</h2><ul><li><a href="#initializing_Transitive.">Initializing Transitive.</a><ul><li><a href="#global_Mixins">Global Mixins</a></li><li><a href="#views_Assets">Views & Assets</a><ul><li><a href="#views_">Views:</a></li><li><a href="#assets_">Assets:</a></li></ul></li><li><a href="#initialize_Server">Initialize Server</a></li><li><a href="#setup_the_router">Setup the router</a></li></ul></li></ul><hr /></div>
+<h2 id="initializing_Transitive.">Initializing Transitive.</h2>
+
+<p>Transitive <code>initialize(scope, options)</code> does four things:</p>
+
+<ol><li>Global Mixins</li><li>Views &amp; Assets</li><li>Initialize Server </li><li>Setup the router</li></ol>
+
+<h3 id="global_Mixins">Global Mixins</h3>
+
+<p>Nobody likes pollution, but we all like convienence.</p>
+
+<p>Here are the items mixed in to the scope passed to initialize:</p>
+
+<p>  ...</p>
+
+<h3 id="views_amp_Assets">Views &amp; Assets</h3>
+
+<h4 id="views_">Views:</h4>
+
+<p>Sharing views between the server and the client is one of the key strengths of Transitive.  Out of the box, Transitive supports Haml-js and underscore templates.</p>
+
+<p>Transitive views are composed of:</p>
+
+<ul><li>Templates - Haml-js, underscore (ejs) or ( mustache ?) by default</li><li><a href="views.html#liveRender">LiveRenders</a> - Event handlers that update the page when your data changes.</li><li><a href="views.html#renderContext">RenderContext</a> &amp; ViewBindings - the glue that makes Templates and LiveRenders work. </li></ul>
+
+<p>Transitive gathers all of your templates and LiveRenders, compiles them and puts the resulting folder in the "generated" directory. By default, that's in options.root+"/public/generated/".   </p>
+
+<p>On the server, you'll have a <code>renderPage(templateName, locals, layoutName)</code> which will return your page, ready to go.  On the client side, you'll have <code>Transitive.render(templateName, locals)</code> which will return HTML ready to be inserted in the DOM (and more.. check out <a href="views.html">Transitive Views</a></p>
+
+<h4 id="assets_">Assets:</h4>
+
+<p>Coming soon, Transitive will include an asset packaging system.</p>
+
+<h3 id="initialize_Server">Initialize Server</h3>
+
+<p>Creates a new http server using connect. Adds a connect.staticProvider for the "public" path, options.root+"/public/" by default.  Starts the server listening on options.port, 3030 by default. Initializes Push-It with the server and options.pi. </p>
+
+<h3 id="setup_the_router">Setup the router</h3>
+
+<p>Transitive's router is currently very limited.</p>
+  </div>
+</body>
+</html>

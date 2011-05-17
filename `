@@ -1,0 +1,32 @@
+## Views
+  
+### LiveRender
+
+  Automatic updating is provided by LiveRenders.  Each LiveRender has two functions: `prepare` and `update`.
+    
+### prepare(templateName, data)
+
+called when the HTML is initially rendered. return the HTML for the initial page load.
+
+`this` is the current RenderContext.
+
+### update(event)
+
+called when the server sends an event about data. modify the current page.
+
+`this` will have the properties:
+
+ * `elementId`: id of a wrapper div automatically inserted around the output of your `prepare` function
+ * `element`: jQuery('#'+elementId), cached for performance 
+ * `templateName`: the same templateName that was passed your `render` function
+ * `objId`: contains the value of data.id
+
+
+
+
+
+### RenderContext
+  the scope that all compiled templates and render functions are attached to (`this` in a template refers to a RenderContext.)
+  
+### ViewBindings
+  { element, template, object, updater} objects that are automatically added to the RenderContext when renderLive is calle

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>overview - Transitive.io Manual &amp; Documentation</title>
+  <link type="image/x-icon" rel="icon" href="/favicon.ico" />
+  <link type="image/x-icon" rel="shortcut icon" href="/favicon.ico" />
+  <link rel="stylesheet" href="assets/style.css" type="text/css" media="all" />
+  <link rel="stylesheet" href="assets/sh.css" type="text/css" media="all"/>
+</head>
+<body>
+  <div id="container">
+    <header>
+      <h1>Transitive.io Manual &amp; Documentation</h1>
+      <div id="gtoc">
+        <p><a href="index.html">Index</a> | <a href="all.html">View on single page</a></p>
+      </div>
+      <hr />
+    </header>
+    <div id="toc"><h2>Table Of Contents</h2><ul><li><a href="#overview">Overview</a><ul><li><a href="#key_Features">Key Features</a><ul><li><a href="#broadcasting_Data">Broadcasting Data</a></li><li><a href="#live_Renders">Live Renders</a></li></ul></li><li><a href="#additional_Benefits">Additional Benefits</a><ul><li><a href="#reasonable_Defaults">Reasonable Defaults</a></li><li><a href="#limited_Scope">Limited Scope</a></li><li><a href="#customizeability">Customizeability</a></li></ul></li></ul></li></ul><hr /></div>
+<h2 id="overview">Overview</h2>
+
+<p>Transitive has two key features:</p>
+
+<ul><li>Broadcasting data</li><li>Live Renders</li></ul>
+
+<p>Additionally, Transitive provides:</p>
+
+<ul><li>Reasonable Defaults</li><li>Limited Scope</li><li>Customizeability</li></ul>
+
+<h3 id="key_Features">Key Features</h3>
+
+<h4 id="broadcasting_Data">Broadcasting Data</h4>
+
+<p>Broadcasting data is the ability for your persistence layer to emit events when your data changes.  Transitive provides a very thin wrapper around <a href="http://github.com/aaronblohowiak/Push-It">Push-It</a></p>
+
+<h4 id="live_Renders">Live Renders</h4>
+
+<p>LiveRenders update the DOM when there is an update to the data. <a href="views.html#liveRender">LiveRender documentation</a> </p>
+
+<p>Calling a "publish" function when your data changes is easy.  Updating the DOM when you know the data has changed is a lot harder.  Transitive provides a lot of support for updaters.</p>
+
+<h3 id="additional_Benefits">Additional Benefits</h3>
+
+<h4 id="reasonable_Defaults">Reasonable Defaults</h4>
+
+<p>Transitive provides example broadcasting datastores (backed by redis) and example render updaters (replace, prepend, addRemove), but you should consider these examples and feel free to implement your own once you have a basic understanding of the system.</p>
+
+<h4 id="limited_Scope">Limited Scope</h4>
+
+<p>Transitive <em>does not</em> provide an ORM, permissions framework, django_admin-style interface or complex controller/router.  These things are welcome as plugins, and I am more than happy to provide support for anyone interested in building such things.</p>
+
+<h4 id="customizeability">Customizeability</h4>
+
+<p>The events your data broadcasts and the kinds of updates you'd like to make are both very application specific, so every effort has been made to streamline the process of creating custom broadcasting data stores and render updaters.  Transitive provides the structure and framework so you can focus on your application-specifc code</p>
+
+<p>I'd like to support an explicit plugin system soon.  If you have ideas about this, or would like to pitch in, please email me.</p>
+  </div>
+</body>
+</html>

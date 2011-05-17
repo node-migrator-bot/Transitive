@@ -34,7 +34,7 @@ I'd like to support an explicit plugin system soon.  If you have ideas about thi
 
 
 
-
+Initializing Transitive.
 
 Transitive `initialize(scope, options)` does four things:
   0. Global Mixins
@@ -51,18 +51,49 @@ Here are the items mixed in to the scope passed to initialize:
   ...
 
 
-1. Initialize views.
+1. Views & Assets
+
+Views:
 
 Sharing views between the server and the client is one of the key strengths of Transitive.  Out of the box, Transitive supports Haml-js and underscore templates.
 
 Transitive views are composed of:
   Templates - Haml-js, underscore (ejs) or ( mustache ?) by default
-  RenderContext & ViewBindings - 
-  LiveRenders - {render, updater, [templates]} objects that provide the context and and state modifaction for "live" templates.
+  LiveRenders - Event handlers that update the page when your data changes.
+  RenderContext & ViewBindings - the glue that makes Templates and LiveRenders work. 
+
+Transitive gathers all of your templates and liverenders, compiles them and puts the resulting folder in the "generated" directory. By default, that's in options.root+"/public/generated/".   
+
+On the server, you'll have a `renderPage(templateName, locals, layoutName)` which will return your page, ready to go.  On the client side, you'll have `Transitive.render(templateName, locals)` which will return HTML ready to be inserted in the DOM (and more.. check out [[Transitive Views]]
+
+Assets:
+
+Coming soon, Transitive will include an asset packaging system.
+
+2. Initialize Server
+
+Creates a new http server using connect. Adds a connect.staticProvider for the "public" path, options.root+"/public/" by default.  Starts the server listening on options.port, 3030 by default. 
+
+
 
 
 
 Transitive Views
+  
+  LiveRender has two functions: prepare and update.
+    
+    `prepare(templateName, data)` is called when the HTML is initially rendered. return the HTML for the initial page load.
+      `this` is the current RenderContext.
+    `update(event)` is called when the server sends an event about data. modify the current page.
+      `this` has the following properties:
+        elementId: id of a wrapper div automatically inserted around the output of your `prepare` function
+        element: jQuery('#'+elementId), cached for performance 
+        templateName: the same templateName that was passed your `render` function
+        objId: contains the value of data.id
+
+
+
+
 
   RenderContext - the scope that all compiled templates and render functions are attached to (`this` in a template refers to a RenderContext.)
   ViewBindings - { element, template, object, updater} objects that are automatically added to the RenderContext when renderLive is called
