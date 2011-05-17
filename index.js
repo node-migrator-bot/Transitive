@@ -1,4 +1,4 @@
-var templates = require('./templates/templates'),
+var templates = require('./views/views'),
     models = require('./models/models'),
     collections = require('./collections/collections'),
     directories = require("./magic_values/directories"),
@@ -11,7 +11,7 @@ Transitive.prototype = Tx;
 
 //Refactor to be a proper constructor.
 Tx.initialize = function(obj, options){
-  this.mixin(obj);
+  this.mixin(obj); // yum! GLOBALS!
 
   obj["$templates"] = templates.standard(options.root, {
     directories: directories,

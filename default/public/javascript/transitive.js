@@ -19,7 +19,6 @@ Transitive.router = {
   }
 };
 
-
 $(function(){
   pushIt = new PushIt({
     hostname: document.domain,
@@ -27,7 +26,6 @@ $(function(){
   });
 
   pushIt.onMessageReceived = function(message){
-    //console.log(JSON.stringify(message));
     Transitive.router.trigger(message.channel, message);
   };
   

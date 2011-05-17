@@ -1,0 +1,406 @@
+info it worked if it ends with ok
+verbose cli [ 'node', '/usr/local/bin/npm', 'publish' ]
+info using npm@1.0.6
+info using node@v0.4.7
+verbose config file /Users/aaronblohowiak/.npmrc
+verbose config file /usr/local/etc/npmrc
+verbose publish [ '.' ]
+silly testEngine { name: 'transitive',
+silly testEngine   description: 'very rough version. please ignore',
+silly testEngine   version: '0.0.0pre13',
+silly testEngine   repository: 
+silly testEngine    { type: 'git',
+silly testEngine      url: 'git://github.com/aaronblohowiak/Transitive.git' },
+silly testEngine   author: 
+silly testEngine    { name: 'Aaron Blohowiak',
+silly testEngine      email: 'aaron.blohowiak@gmail.com' },
+silly testEngine   directories: { lib: '.' },
+silly testEngine   main: 'index',
+silly testEngine   engines: { node: '*' },
+silly testEngine   devDependencies: {},
+silly testEngine   dependencies: 
+silly testEngine    { optimist: '0.0.3',
+silly testEngine      'push-it': '0.0.1pre8',
+silly testEngine      'shared-views': '0.6.1',
+silly testEngine      'uuid-pure': '1.0.10',
+silly testEngine      underscore: '1.1.6',
+silly testEngine      connect: '0.5.6',
+silly testEngine      findit: '0.0.3',
+silly testEngine      haml: '0.4.0' },
+silly testEngine   bin: { transitive: './command.js' },
+silly testEngine   dont_announce: true,
+silly testEngine   _id: 'transitive@0.0.0pre13',
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.6',
+silly testEngine   _nodeVersion: 'v0.4.7',
+silly testEngine   _defaultsLoaded: true }
+verbose caching package.json
+verbose loadDefaults transitive@0.0.0pre13
+verbose pack /Users/aaronblohowiak/js/Transitive /var/folders/8Q/8QrPg1lXE4y+GhLQOTqY3U+++TI/-Tmp-/npm-1305504686946/1305504686946-0.5503791647497565/tmp.tgz
+silly testEngine { name: 'transitive',
+silly testEngine   description: 'very rough version. please ignore',
+silly testEngine   version: '0.0.0pre13',
+silly testEngine   repository: 
+silly testEngine    { type: 'git',
+silly testEngine      url: 'git://github.com/aaronblohowiak/Transitive.git' },
+silly testEngine   author: 
+silly testEngine    { name: 'Aaron Blohowiak',
+silly testEngine      email: 'aaron.blohowiak@gmail.com' },
+silly testEngine   directories: { lib: '.' },
+silly testEngine   main: 'index',
+silly testEngine   engines: { node: '*' },
+silly testEngine   devDependencies: {},
+silly testEngine   dependencies: 
+silly testEngine    { optimist: '0.0.3',
+silly testEngine      'push-it': '0.0.1pre8',
+silly testEngine      'shared-views': '0.6.1',
+silly testEngine      'uuid-pure': '1.0.10',
+silly testEngine      underscore: '1.1.6',
+silly testEngine      connect: '0.5.6',
+silly testEngine      findit: '0.0.3',
+silly testEngine      haml: '0.4.0' },
+silly testEngine   bin: { transitive: './command.js' },
+silly testEngine   dont_announce: true,
+silly testEngine   _id: 'transitive@0.0.0pre13',
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.6',
+silly testEngine   _nodeVersion: 'v0.4.7',
+silly testEngine   _defaultsLoaded: true,
+silly testEngine   path: '/Users/aaronblohowiak/js/Transitive' }
+verbose caching /Users/aaronblohowiak/js/Transitive/package.json
+verbose loadDefaults transitive@0.0.0pre13
+verbose mkdir done: /var/folders/8Q/8QrPg1lXE4y+GhLQOTqY3U+++TI/-Tmp-/npm-1305504686946/1305504686946-0.5503791647497565 755
+verbose mkdir'ed /var/folders/8Q/8QrPg1lXE4y+GhLQOTqY3U+++TI/-Tmp-/npm-1305504686946/1305504686946-0.5503791647497565
+verbose tar about to write tar and gzip it.
+silly tar args [ '-cvf',
+silly tar args   '-',
+silly tar args   'Transitive/command.js',
+silly tar args   'Transitive/index.js',
+silly tar args   'Transitive/package.json',
+silly tar args   'Transitive/README.md',
+silly tar args   'Transitive/TODO.md',
+silly tar args   'Transitive/magic_values/directories.js',
+silly tar args   'Transitive/collections/basic.js',
+silly tar args   'Transitive/collections/collections.js',
+silly tar args   'Transitive/collections/stores/memory.js',
+silly tar args   'Transitive/collections/stores/redis_z.js',
+silly tar args   'Transitive/models/basic.js',
+silly tar args   'Transitive/models/models.js',
+silly tar args   'Transitive/models/stores.js',
+silly tar args   'Transitive/models/stores/memory.js',
+silly tar args   'Transitive/models/stores/redis_json.js',
+silly tar args   'Transitive/templates/templates.js',
+silly tar args   'Transitive/templates/live-renders/add_remove.js',
+silly tar args   'Transitive/templates/live-renders/prepend.js',
+silly tar args   'Transitive/templates/live-renders/replace.js',
+silly tar args   'Transitive/default/server.js',
+silly tar args   'Transitive/default/views/home.haml',
+silly tar args   'Transitive/default/views/layout.haml',
+silly tar args   'Transitive/default/views/server_time.haml',
+silly tar args   'Transitive/default/public/css/app.css',
+silly tar args   'Transitive/default/public/javascript/app.js',
+silly tar args   'Transitive/default/public/javascript/jquery.min.js',
+silly tar args   'Transitive/default/public/javascript/push-it.js',
+silly tar args   'Transitive/default/public/javascript/transitive.js' ]
+verbose success tar -cvf - <file list elided>
+verbose success gzip "--stdout"
+verbose mkdir done: /var/folders/8Q/8QrPg1lXE4y+GhLQOTqY3U+++TI/-Tmp-/npm-1305504686946/1305504686946-0.5503791647497565/contents/___package.npm 755
+verbose unpack_ uid, gid [ undefined, undefined ]
+verbose unpackTarget /var/folders/8Q/8QrPg1lXE4y+GhLQOTqY3U+++TI/-Tmp-/npm-1305504686946/1305504686946-0.5503791647497565/contents/package
+silly gunzTarPerm modes [ '755', '644' ]
+verbose success gzip "--decompress" "--stdout" "/var/folders/8Q/8QrPg1lXE4y+GhLQOTqY3U+++TI/-Tmp-/npm-1305504686946/1305504686946-0.5503791647497565/tmp.tgz"
+verbose success tar "-mvxpf" "-" "--no-same-owner" "-C" "/var/folders/8Q/8QrPg1lXE4y+GhLQOTqY3U+++TI/-Tmp-/npm-1305504686946/1305504686946-0.5503791647497565/contents/___package.npm"
+silly asyncMap in gTP /var/folders/8Q/8QrPg1lXE4y+GhLQOTqY3U+++TI/-Tmp-/npm-1305504686946/1305504686946-0.5503791647497565/contents/___package.npm/Transitive/
+silly asyncMap in gTP /var/folders/8Q/8QrPg1lXE4y+GhLQOTqY3U+++TI/-Tmp-/npm-1305504686946/1305504686946-0.5503791647497565/contents/___package.npm/Transitive/command.js
+silly asyncMap in gTP /var/folders/8Q/8QrPg1lXE4y+GhLQOTqY3U+++TI/-Tmp-/npm-1305504686946/1305504686946-0.5503791647497565/contents/___package.npm/Transitive/index.js
+silly asyncMap in gTP /var/folders/8Q/8QrPg1lXE4y+GhLQOTqY3U+++TI/-Tmp-/npm-1305504686946/1305504686946-0.5503791647497565/contents/___package.npm/Transitive/package.json
+silly asyncMap in gTP /var/folders/8Q/8QrPg1lXE4y+GhLQOTqY3U+++TI/-Tmp-/npm-1305504686946/1305504686946-0.5503791647497565/contents/___package.npm/Transitive/README.md
+silly asyncMap in gTP /var/folders/8Q/8QrPg1lXE4y+GhLQOTqY3U+++TI/-Tmp-/npm-1305504686946/1305504686946-0.5503791647497565/contents/___package.npm/Transitive/TODO.md
+silly asyncMap in gTP /var/folders/8Q/8QrPg1lXE4y+GhLQOTqY3U+++TI/-Tmp-/npm-1305504686946/1305504686946-0.5503791647497565/contents/___package.npm/Transitive/magic_values/
+silly asyncMap in gTP /var/folders/8Q/8QrPg1lXE4y+GhLQOTqY3U+++TI/-Tmp-/npm-1305504686946/1305504686946-0.5503791647497565/contents/___package.npm/Transitive/magic_values/directories.js
+silly asyncMap in gTP /var/folders/8Q/8QrPg1lXE4y+GhLQOTqY3U+++TI/-Tmp-/npm-1305504686946/1305504686946-0.5503791647497565/contents/___package.npm/Transitive/collections/
+silly asyncMap in gTP /var/folders/8Q/8QrPg1lXE4y+GhLQOTqY3U+++TI/-Tmp-/npm-1305504686946/1305504686946-0.5503791647497565/contents/___package.npm/Transitive/collections/basic.js
+silly asyncMap in gTP /var/folders/8Q/8QrPg1lXE4y+GhLQOTqY3U+++TI/-Tmp-/npm-1305504686946/1305504686946-0.5503791647497565/contents/___package.npm/Transitive/collections/collections.js
+silly asyncMap in gTP /var/folders/8Q/8QrPg1lXE4y+GhLQOTqY3U+++TI/-Tmp-/npm-1305504686946/1305504686946-0.5503791647497565/contents/___package.npm/Transitive/collections/stores/
+silly asyncMap in gTP /var/folders/8Q/8QrPg1lXE4y+GhLQOTqY3U+++TI/-Tmp-/npm-1305504686946/1305504686946-0.5503791647497565/contents/___package.npm/Transitive/collections/stores/memory.js
+silly asyncMap in gTP /var/folders/8Q/8QrPg1lXE4y+GhLQOTqY3U+++TI/-Tmp-/npm-1305504686946/1305504686946-0.5503791647497565/contents/___package.npm/Transitive/collections/stores/redis_z.js
+silly asyncMap in gTP /var/folders/8Q/8QrPg1lXE4y+GhLQOTqY3U+++TI/-Tmp-/npm-1305504686946/1305504686946-0.5503791647497565/contents/___package.npm/Transitive/models/
+silly asyncMap in gTP /var/folders/8Q/8QrPg1lXE4y+GhLQOTqY3U+++TI/-Tmp-/npm-1305504686946/1305504686946-0.5503791647497565/contents/___package.npm/Transitive/models/basic.js
+silly asyncMap in gTP /var/folders/8Q/8QrPg1lXE4y+GhLQOTqY3U+++TI/-Tmp-/npm-1305504686946/1305504686946-0.5503791647497565/contents/___package.npm/Transitive/models/models.js
+silly asyncMap in gTP /var/folders/8Q/8QrPg1lXE4y+GhLQOTqY3U+++TI/-Tmp-/npm-1305504686946/1305504686946-0.5503791647497565/contents/___package.npm/Transitive/models/stores.js
+silly asyncMap in gTP /var/folders/8Q/8QrPg1lXE4y+GhLQOTqY3U+++TI/-Tmp-/npm-1305504686946/1305504686946-0.5503791647497565/contents/___package.npm/Transitive/models/stores/
+silly asyncMap in gTP /var/folders/8Q/8QrPg1lXE4y+GhLQOTqY3U+++TI/-Tmp-/npm-1305504686946/1305504686946-0.5503791647497565/contents/___package.npm/Transitive/models/stores/memory.js
+silly asyncMap in gTP /var/folders/8Q/8QrPg1lXE4y+GhLQOTqY3U+++TI/-Tmp-/npm-1305504686946/1305504686946-0.5503791647497565/contents/___package.npm/Transitive/models/stores/redis_json.js
+silly asyncMap in gTP /var/folders/8Q/8QrPg1lXE4y+GhLQOTqY3U+++TI/-Tmp-/npm-1305504686946/1305504686946-0.5503791647497565/contents/___package.npm/Transitive/templates/
+silly asyncMap in gTP /var/folders/8Q/8QrPg1lXE4y+GhLQOTqY3U+++TI/-Tmp-/npm-1305504686946/1305504686946-0.5503791647497565/contents/___package.npm/Transitive/templates/templates.js
+silly asyncMap in gTP /var/folders/8Q/8QrPg1lXE4y+GhLQOTqY3U+++TI/-Tmp-/npm-1305504686946/1305504686946-0.5503791647497565/contents/___package.npm/Transitive/templates/live-renders/
+silly asyncMap in gTP /var/folders/8Q/8QrPg1lXE4y+GhLQOTqY3U+++TI/-Tmp-/npm-1305504686946/1305504686946-0.5503791647497565/contents/___package.npm/Transitive/templates/live-renders/add_remove.js
+silly asyncMap in gTP /var/folders/8Q/8QrPg1lXE4y+GhLQOTqY3U+++TI/-Tmp-/npm-1305504686946/1305504686946-0.5503791647497565/contents/___package.npm/Transitive/templates/live-renders/prepend.js
+silly asyncMap in gTP /var/folders/8Q/8QrPg1lXE4y+GhLQOTqY3U+++TI/-Tmp-/npm-1305504686946/1305504686946-0.5503791647497565/contents/___package.npm/Transitive/templates/live-renders/replace.js
+silly asyncMap in gTP /var/folders/8Q/8QrPg1lXE4y+GhLQOTqY3U+++TI/-Tmp-/npm-1305504686946/1305504686946-0.5503791647497565/contents/___package.npm/Transitive/default/
+silly asyncMap in gTP /var/folders/8Q/8QrPg1lXE4y+GhLQOTqY3U+++TI/-Tmp-/npm-1305504686946/1305504686946-0.5503791647497565/contents/___package.npm/Transitive/default/server.js
+silly asyncMap in gTP /var/folders/8Q/8QrPg1lXE4y+GhLQOTqY3U+++TI/-Tmp-/npm-1305504686946/1305504686946-0.5503791647497565/contents/___package.npm/Transitive/default/views/
+silly asyncMap in gTP /var/folders/8Q/8QrPg1lXE4y+GhLQOTqY3U+++TI/-Tmp-/npm-1305504686946/1305504686946-0.5503791647497565/contents/___package.npm/Transitive/default/views/home.haml
+silly asyncMap in gTP /var/folders/8Q/8QrPg1lXE4y+GhLQOTqY3U+++TI/-Tmp-/npm-1305504686946/1305504686946-0.5503791647497565/contents/___package.npm/Transitive/default/views/layout.haml
+silly asyncMap in gTP /var/folders/8Q/8QrPg1lXE4y+GhLQOTqY3U+++TI/-Tmp-/npm-1305504686946/1305504686946-0.5503791647497565/contents/___package.npm/Transitive/default/views/server_time.haml
+silly asyncMap in gTP /var/folders/8Q/8QrPg1lXE4y+GhLQOTqY3U+++TI/-Tmp-/npm-1305504686946/1305504686946-0.5503791647497565/contents/___package.npm/Transitive/default/public/
+silly asyncMap in gTP /var/folders/8Q/8QrPg1lXE4y+GhLQOTqY3U+++TI/-Tmp-/npm-1305504686946/1305504686946-0.5503791647497565/contents/___package.npm/Transitive/default/public/css/
+silly asyncMap in gTP /var/folders/8Q/8QrPg1lXE4y+GhLQOTqY3U+++TI/-Tmp-/npm-1305504686946/1305504686946-0.5503791647497565/contents/___package.npm/Transitive/default/public/css/app.css
+silly asyncMap in gTP /var/folders/8Q/8QrPg1lXE4y+GhLQOTqY3U+++TI/-Tmp-/npm-1305504686946/1305504686946-0.5503791647497565/contents/___package.npm/Transitive/default/public/javascript/
+silly asyncMap in gTP /var/folders/8Q/8QrPg1lXE4y+GhLQOTqY3U+++TI/-Tmp-/npm-1305504686946/1305504686946-0.5503791647497565/contents/___package.npm/Transitive/default/public/javascript/app.js
+silly asyncMap in gTP /var/folders/8Q/8QrPg1lXE4y+GhLQOTqY3U+++TI/-Tmp-/npm-1305504686946/1305504686946-0.5503791647497565/contents/___package.npm/Transitive/default/public/javascript/jquery.min.js
+silly asyncMap in gTP /var/folders/8Q/8QrPg1lXE4y+GhLQOTqY3U+++TI/-Tmp-/npm-1305504686946/1305504686946-0.5503791647497565/contents/___package.npm/Transitive/default/public/javascript/push-it.js
+silly asyncMap in gTP /var/folders/8Q/8QrPg1lXE4y+GhLQOTqY3U+++TI/-Tmp-/npm-1305504686946/1305504686946-0.5503791647497565/contents/___package.npm/Transitive/default/public/javascript/transitive.js
+verbose gunzed /var/folders/8Q/8QrPg1lXE4y+GhLQOTqY3U+++TI/-Tmp-/npm-1305504686946/1305504686946-0.5503791647497565/contents/___package.npm/Transitive
+verbose rm'ed /var/folders/8Q/8QrPg1lXE4y+GhLQOTqY3U+++TI/-Tmp-/npm-1305504686946/1305504686946-0.5503791647497565/contents/package
+verbose renamed [ '/var/folders/8Q/8QrPg1lXE4y+GhLQOTqY3U+++TI/-Tmp-/npm-1305504686946/1305504686946-0.5503791647497565/contents/___package.npm/Transitive',
+verbose renamed   '/var/folders/8Q/8QrPg1lXE4y+GhLQOTqY3U+++TI/-Tmp-/npm-1305504686946/1305504686946-0.5503791647497565/contents/package' ]
+silly testEngine { name: 'transitive',
+silly testEngine   description: 'very rough version. please ignore',
+silly testEngine   version: '0.0.0pre13',
+silly testEngine   repository: 
+silly testEngine    { type: 'git',
+silly testEngine      url: 'git://github.com/aaronblohowiak/Transitive.git' },
+silly testEngine   author: 
+silly testEngine    { name: 'Aaron Blohowiak',
+silly testEngine      email: 'aaron.blohowiak@gmail.com' },
+silly testEngine   directories: { lib: '.' },
+silly testEngine   main: 'index',
+silly testEngine   engines: { node: '*' },
+silly testEngine   devDependencies: {},
+silly testEngine   dependencies: 
+silly testEngine    { optimist: '0.0.3',
+silly testEngine      'push-it': '0.0.1pre8',
+silly testEngine      'shared-views': '0.6.1',
+silly testEngine      'uuid-pure': '1.0.10',
+silly testEngine      underscore: '1.1.6',
+silly testEngine      connect: '0.5.6',
+silly testEngine      findit: '0.0.3',
+silly testEngine      haml: '0.4.0' },
+silly testEngine   bin: { transitive: './command.js' },
+silly testEngine   dont_announce: true,
+silly testEngine   _id: 'transitive@0.0.0pre13',
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.6',
+silly testEngine   _nodeVersion: 'v0.4.7',
+silly testEngine   _defaultsLoaded: true,
+silly testEngine   path: '/var/folders/8Q/8QrPg1lXE4y+GhLQOTqY3U+++TI/-Tmp-/npm-1305504686946/1305504686946-0.5503791647497565/contents/package' }
+verbose caching /var/folders/8Q/8QrPg1lXE4y+GhLQOTqY3U+++TI/-Tmp-/npm-1305504686946/1305504686946-0.5503791647497565/contents/package/package.json
+verbose loadDefaults transitive@0.0.0pre13
+verbose tarball contents [ 'package' ]
+verbose from cache /var/folders/8Q/8QrPg1lXE4y+GhLQOTqY3U+++TI/-Tmp-/npm-1305504686946/1305504686946-0.5503791647497565/contents/package/package.json
+verbose pack /var/folders/8Q/8QrPg1lXE4y+GhLQOTqY3U+++TI/-Tmp-/npm-1305504686946/1305504686946-0.5503791647497565/contents/package /Users/aaronblohowiak/.npm/transitive/0.0.0pre13/package.tgz
+verbose from cache /var/folders/8Q/8QrPg1lXE4y+GhLQOTqY3U+++TI/-Tmp-/npm-1305504686946/1305504686946-0.5503791647497565/contents/package/package.json
+verbose mkdir done: /Users/aaronblohowiak/.npm/transitive/0.0.0pre13 755
+verbose mkdir'ed /Users/aaronblohowiak/.npm/transitive/0.0.0pre13
+verbose tar about to write tar and gzip it.
+silly tar args [ '-cvf',
+silly tar args   '-',
+silly tar args   'package/command.js',
+silly tar args   'package/index.js',
+silly tar args   'package/package.json',
+silly tar args   'package/README.md',
+silly tar args   'package/TODO.md',
+silly tar args   'package/magic_values/directories.js',
+silly tar args   'package/collections/basic.js',
+silly tar args   'package/collections/collections.js',
+silly tar args   'package/collections/stores/memory.js',
+silly tar args   'package/collections/stores/redis_z.js',
+silly tar args   'package/models/basic.js',
+silly tar args   'package/models/models.js',
+silly tar args   'package/models/stores.js',
+silly tar args   'package/models/stores/memory.js',
+silly tar args   'package/models/stores/redis_json.js',
+silly tar args   'package/templates/templates.js',
+silly tar args   'package/templates/live-renders/add_remove.js',
+silly tar args   'package/templates/live-renders/prepend.js',
+silly tar args   'package/templates/live-renders/replace.js',
+silly tar args   'package/default/server.js',
+silly tar args   'package/default/views/home.haml',
+silly tar args   'package/default/views/layout.haml',
+silly tar args   'package/default/views/server_time.haml',
+silly tar args   'package/default/public/css/app.css',
+silly tar args   'package/default/public/javascript/app.js',
+silly tar args   'package/default/public/javascript/jquery.min.js',
+silly tar args   'package/default/public/javascript/push-it.js',
+silly tar args   'package/default/public/javascript/transitive.js' ]
+verbose success tar -cvf - <file list elided>
+verbose success gzip "--stdout"
+verbose mkdir done: /Users/aaronblohowiak/.npm/transitive/0.0.0pre13/___package.npm 755
+verbose unpack_ uid, gid [ undefined, undefined ]
+verbose unpackTarget /Users/aaronblohowiak/.npm/transitive/0.0.0pre13/package
+silly gunzTarPerm modes [ '755', '644' ]
+verbose success gzip "--decompress" "--stdout" "/Users/aaronblohowiak/.npm/transitive/0.0.0pre13/package.tgz"
+verbose success tar "-mvxpf" "-" "--no-same-owner" "-C" "/Users/aaronblohowiak/.npm/transitive/0.0.0pre13/___package.npm"
+silly asyncMap in gTP /Users/aaronblohowiak/.npm/transitive/0.0.0pre13/___package.npm/package/
+silly asyncMap in gTP /Users/aaronblohowiak/.npm/transitive/0.0.0pre13/___package.npm/package/command.js
+silly asyncMap in gTP /Users/aaronblohowiak/.npm/transitive/0.0.0pre13/___package.npm/package/index.js
+silly asyncMap in gTP /Users/aaronblohowiak/.npm/transitive/0.0.0pre13/___package.npm/package/package.json
+silly asyncMap in gTP /Users/aaronblohowiak/.npm/transitive/0.0.0pre13/___package.npm/package/README.md
+silly asyncMap in gTP /Users/aaronblohowiak/.npm/transitive/0.0.0pre13/___package.npm/package/TODO.md
+silly asyncMap in gTP /Users/aaronblohowiak/.npm/transitive/0.0.0pre13/___package.npm/package/magic_values/
+silly asyncMap in gTP /Users/aaronblohowiak/.npm/transitive/0.0.0pre13/___package.npm/package/magic_values/directories.js
+silly asyncMap in gTP /Users/aaronblohowiak/.npm/transitive/0.0.0pre13/___package.npm/package/collections/
+silly asyncMap in gTP /Users/aaronblohowiak/.npm/transitive/0.0.0pre13/___package.npm/package/collections/basic.js
+silly asyncMap in gTP /Users/aaronblohowiak/.npm/transitive/0.0.0pre13/___package.npm/package/collections/collections.js
+silly asyncMap in gTP /Users/aaronblohowiak/.npm/transitive/0.0.0pre13/___package.npm/package/collections/stores/
+silly asyncMap in gTP /Users/aaronblohowiak/.npm/transitive/0.0.0pre13/___package.npm/package/collections/stores/memory.js
+silly asyncMap in gTP /Users/aaronblohowiak/.npm/transitive/0.0.0pre13/___package.npm/package/collections/stores/redis_z.js
+silly asyncMap in gTP /Users/aaronblohowiak/.npm/transitive/0.0.0pre13/___package.npm/package/models/
+silly asyncMap in gTP /Users/aaronblohowiak/.npm/transitive/0.0.0pre13/___package.npm/package/models/basic.js
+silly asyncMap in gTP /Users/aaronblohowiak/.npm/transitive/0.0.0pre13/___package.npm/package/models/models.js
+silly asyncMap in gTP /Users/aaronblohowiak/.npm/transitive/0.0.0pre13/___package.npm/package/models/stores.js
+silly asyncMap in gTP /Users/aaronblohowiak/.npm/transitive/0.0.0pre13/___package.npm/package/models/stores/
+silly asyncMap in gTP /Users/aaronblohowiak/.npm/transitive/0.0.0pre13/___package.npm/package/models/stores/memory.js
+silly asyncMap in gTP /Users/aaronblohowiak/.npm/transitive/0.0.0pre13/___package.npm/package/models/stores/redis_json.js
+silly asyncMap in gTP /Users/aaronblohowiak/.npm/transitive/0.0.0pre13/___package.npm/package/templates/
+silly asyncMap in gTP /Users/aaronblohowiak/.npm/transitive/0.0.0pre13/___package.npm/package/templates/templates.js
+silly asyncMap in gTP /Users/aaronblohowiak/.npm/transitive/0.0.0pre13/___package.npm/package/templates/live-renders/
+silly asyncMap in gTP /Users/aaronblohowiak/.npm/transitive/0.0.0pre13/___package.npm/package/templates/live-renders/add_remove.js
+silly asyncMap in gTP /Users/aaronblohowiak/.npm/transitive/0.0.0pre13/___package.npm/package/templates/live-renders/prepend.js
+silly asyncMap in gTP /Users/aaronblohowiak/.npm/transitive/0.0.0pre13/___package.npm/package/templates/live-renders/replace.js
+silly asyncMap in gTP /Users/aaronblohowiak/.npm/transitive/0.0.0pre13/___package.npm/package/default/
+silly asyncMap in gTP /Users/aaronblohowiak/.npm/transitive/0.0.0pre13/___package.npm/package/default/server.js
+silly asyncMap in gTP /Users/aaronblohowiak/.npm/transitive/0.0.0pre13/___package.npm/package/default/views/
+silly asyncMap in gTP /Users/aaronblohowiak/.npm/transitive/0.0.0pre13/___package.npm/package/default/views/home.haml
+silly asyncMap in gTP /Users/aaronblohowiak/.npm/transitive/0.0.0pre13/___package.npm/package/default/views/layout.haml
+silly asyncMap in gTP /Users/aaronblohowiak/.npm/transitive/0.0.0pre13/___package.npm/package/default/views/server_time.haml
+silly asyncMap in gTP /Users/aaronblohowiak/.npm/transitive/0.0.0pre13/___package.npm/package/default/public/
+silly asyncMap in gTP /Users/aaronblohowiak/.npm/transitive/0.0.0pre13/___package.npm/package/default/public/css/
+silly asyncMap in gTP /Users/aaronblohowiak/.npm/transitive/0.0.0pre13/___package.npm/package/default/public/css/app.css
+silly asyncMap in gTP /Users/aaronblohowiak/.npm/transitive/0.0.0pre13/___package.npm/package/default/public/javascript/
+silly asyncMap in gTP /Users/aaronblohowiak/.npm/transitive/0.0.0pre13/___package.npm/package/default/public/javascript/app.js
+silly asyncMap in gTP /Users/aaronblohowiak/.npm/transitive/0.0.0pre13/___package.npm/package/default/public/javascript/jquery.min.js
+silly asyncMap in gTP /Users/aaronblohowiak/.npm/transitive/0.0.0pre13/___package.npm/package/default/public/javascript/push-it.js
+silly asyncMap in gTP /Users/aaronblohowiak/.npm/transitive/0.0.0pre13/___package.npm/package/default/public/javascript/transitive.js
+verbose gunzed /Users/aaronblohowiak/.npm/transitive/0.0.0pre13/___package.npm/package
+verbose rm'ed /Users/aaronblohowiak/.npm/transitive/0.0.0pre13/package
+verbose renamed [ '/Users/aaronblohowiak/.npm/transitive/0.0.0pre13/___package.npm/package',
+verbose renamed   '/Users/aaronblohowiak/.npm/transitive/0.0.0pre13/package' ]
+silly testEngine { name: 'transitive',
+silly testEngine   description: 'very rough version. please ignore',
+silly testEngine   version: '0.0.0pre13',
+silly testEngine   repository: 
+silly testEngine    { type: 'git',
+silly testEngine      url: 'git://github.com/aaronblohowiak/Transitive.git' },
+silly testEngine   author: 
+silly testEngine    { name: 'Aaron Blohowiak',
+silly testEngine      email: 'aaron.blohowiak@gmail.com' },
+silly testEngine   directories: { lib: '.' },
+silly testEngine   main: 'index',
+silly testEngine   engines: { node: '*' },
+silly testEngine   devDependencies: {},
+silly testEngine   dependencies: 
+silly testEngine    { optimist: '0.0.3',
+silly testEngine      'push-it': '0.0.1pre8',
+silly testEngine      'shared-views': '0.6.1',
+silly testEngine      'uuid-pure': '1.0.10',
+silly testEngine      underscore: '1.1.6',
+silly testEngine      connect: '0.5.6',
+silly testEngine      findit: '0.0.3',
+silly testEngine      haml: '0.4.0' },
+silly testEngine   bin: { transitive: './command.js' },
+silly testEngine   dont_announce: true,
+silly testEngine   _id: 'transitive@0.0.0pre13',
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.6',
+silly testEngine   _nodeVersion: 'v0.4.7',
+silly testEngine   _defaultsLoaded: true,
+silly testEngine   dist: 
+silly testEngine    { shasum: '148f0ce03bec1495dc0d0dba733d534b968fc608',
+silly testEngine      tarball: 'http://registry.npmjs.org/transitive/-/transitive-0.0.0pre13.tgz' },
+silly testEngine   scripts: {} }
+verbose caching /Users/aaronblohowiak/.npm/transitive/0.0.0pre13/package/package.json
+verbose loadDefaults transitive@0.0.0pre13
+silly updated sha bytes 39601
+info shasum 148f0ce03bec1495dc0d0dba733d534b968fc608
+info shasum /Users/aaronblohowiak/.npm/transitive/0.0.0pre13/package.tgz
+verbose from cache /Users/aaronblohowiak/.npm/transitive/0.0.0pre13/package/package.json
+verbose chmod /Users/aaronblohowiak/.npm/transitive/0.0.0pre13/package.json 644
+verbose chmod /Users/aaronblohowiak/.npm/transitive/0.0.0pre13/package.tgz 644
+silly publish { name: 'transitive',
+silly publish   description: 'very rough version. please ignore',
+silly publish   version: '0.0.0pre13',
+silly publish   repository: 
+silly publish    { type: 'git',
+silly publish      url: 'git://github.com/aaronblohowiak/Transitive.git' },
+silly publish   author: 
+silly publish    { name: 'Aaron Blohowiak',
+silly publish      email: 'aaron.blohowiak@gmail.com' },
+silly publish   directories: { lib: '.' },
+silly publish   main: 'index',
+silly publish   engines: { node: '*' },
+silly publish   devDependencies: {},
+silly publish   dependencies: 
+silly publish    { optimist: '0.0.3',
+silly publish      'push-it': '0.0.1pre8',
+silly publish      'shared-views': '0.6.1',
+silly publish      'uuid-pure': '1.0.10',
+silly publish      underscore: '1.1.6',
+silly publish      connect: '0.5.6',
+silly publish      findit: '0.0.3',
+silly publish      haml: '0.4.0' },
+silly publish   bin: { transitive: './command.js' },
+silly publish   dont_announce: true,
+silly publish   _id: 'transitive@0.0.0pre13',
+silly publish   _engineSupported: true,
+silly publish   _npmVersion: '1.0.6',
+silly publish   _nodeVersion: 'v0.4.7',
+silly publish   _defaultsLoaded: true,
+silly publish   dist: 
+silly publish    { shasum: '148f0ce03bec1495dc0d0dba733d534b968fc608',
+silly publish      tarball: 'http://registry.npmjs.org/transitive/-/transitive-0.0.0pre13.tgz' },
+silly publish   scripts: {} }
+info prepublish transitive@0.0.0pre13
+verbose PUT transitive
+verbose raw, before any munging transitive
+verbose url resolving [ 'http://registry.npmjs.org/', './transitive' ]
+verbose url resolved http://registry.npmjs.org/transitive
+verbose url parsed { protocol: 'http:',
+verbose url parsed   slashes: true,
+verbose url parsed   host: 'registry.npmjs.org',
+verbose url parsed   hostname: 'registry.npmjs.org',
+verbose url parsed   href: 'http://registry.npmjs.org/transitive',
+verbose url parsed   pathname: '/transitive' }
+WARN Sending authorization over insecure channel.
+silly writing json { _id: 'transitive',
+silly writing json   name: 'transitive',
+silly writing json   description: 'very rough version. please ignore',
+silly writing json   'dist-tags': {},
+silly writing json   versions: {},
+silly writing json   maintainers: 
+silly writing json    [ { name: 'aaronblohowiak',
+silly writing json        email: 'aaron.blohowiak@gmail.com' } ] }
+verbose response http://registry.npmjs.org/transitive
+silly chunk {"error":"conflict","reason":"Document update conflict."}
+silly chunk 
+verbose GET transitive
+verbose raw, before any munging transitive
+verbose url resolving [ 'http://registry.npmjs.org/', './transitive' ]
+verbose url resolved http://registry.npmjs.org/transitive
+verbose url parsed { protocol: 'http:',
+verbose url parsed   slashes: true,
+verbose url parsed   host: 'registry.npmjs.org',
+verbose url parsed   hostname: 'registry.npmjs.org',
+verbose url parsed   href: 'http://registry.npmjs.org/transitive',
+verbose url parsed   pathname: '/transitive' }
+verbose response http://registry.npmjs.org/transitive
+silly chunk {"_id":"transitive","_rev":"25-75aa70e2f365631993aef577a2aafad8","name":"transitive","description":"very rough version. please ignore","dist-tags":{"latest":"0.0.0pre13"},"versions":{"0.0.0pre2":{"name":"transitive","description":"nothing to see here","version":"0.0.0pre2","repository":{"type":"git","url":"git://github.com/aaronblohowiak/Transitive.git"},"author":{"name":"Aaron Blohowiak","email":"aaron.blohowiak@gmail.com"},"directories":{"lib":"."},"main":"index","engines":{"node":"*"},"dependencies":{"optimist":"0.0.3"},"bin":{"transitive":"./command.js"},"dont_announce":true,"_id":"transitive@0.0.0pre2","_engineSupported":true,"_npmVersion":"0.3.18","_nodeVersion":"v0.4.7","files":[""],"_defaultsLoaded":true,"dist":{"shasum":"c16c7a37340735e50035259b0c1110db0dd60261","tarball":"http://registry.npmjs.org/transitive/-/transitive-0.0.0pre2.tgz"}},"0.0.0pre3":{"name":"transitive","description":"nothing to see here","version":"0.0.0pre3","repository":{"type":"git","url":"git://github.com/aaronblohowiak/Transitive.git"},"author":{"name":"Aaron Blohowiak","email":"aaron.blohowiak@gmail.com"},"directories":{"lib":"."},"main":"index","engines":{"node":"*"},"dependencies":{"optimist":"0.0.3","push-it":"*","shared-views":"*","uuid-pur
+silly chunk e":"*","unde
+silly chunk rscore":"*","connect":"*"},"bin":{"transitive":"./command.js"},"dont_announce":true,"_id":"transitive@0.0.0pre3","_engineSupported":true,"_npmVersion":"0.3.18","_nodeVersion":"v0.4.7","files":[""],"_defaultsLoaded":true,"dist":{"shasum":"08e0113a00a31cb328f0ee10d6610510e8facf70","tarball":"http://registry.npmjs.org/transitive/-/transitive-0.0.0pre3.tgz"}},"0.0.0pre4":{"name":"transitive","description":"nothing to see here","version":"0.0.0pre4","repository":{"type":"git","url":"git://github.com/aaronblohowiak/Transitive.git"},"author":{"name":"Aaron Blohowiak","email":"aaron.blohowiak@gmail.com"},"directories":{"lib":"."},"main":"index","engines":{"node":"*"},"dependencies":{"optimist":"0.0.3","push-it":"0.0.1pre6","shared-views":"0.6.1","uuid-pure":"1.0.4","underscore":"*","connect":"*"},"bin":{"transitive":"./command.js"},"dont_announce":true,"_id":"transitive@0.0.0pre4","_engineSupported":true,"_npmVersion":"0.3.18","_nodeVersion":"v0.4.7","files":[""],"_defaultsLoaded":true,"dist":{"shasum":"52000fb26aee0e8febf24abccb416c44e886bd41","tarball":"http://registry.npmjs.org/transitive/-/transitive-0.0.0pre4.tgz"}},"0.0.0pre5":{"name":"transitive","description":"nothing to see here","version":"0.0.0pre5","repository":{"type":"git","url":"git://github.com/aaronblohowiak/Transitive.git"},"author":{"name":"Aaron Blohowiak","email":"aaron.blohowiak@gmail.com"},"directories":{"lib":"."},"main":"index","engines":{"node":"*"},"depend
+silly chunk encies":{"optimist":"0.0.3","push-it":"0.0.1pre6","shared-views":"0.6.1","uuid-pure":"1.0.4","underscore":"1.1.6","connect":"0.5.6"},"bin":{"transitive":"./command.js"},"dont_announce":true,"_id":"transitive@0.0.0pre5","_engineSupported":true,"_npmVersion":"0.3.18","_nodeVersion":"v0.4.7","files":[""],"_defaultsLoaded":true,"dist":{"shasum":"e51999add9ca956774ec161b64f5441843101c11","tarball":"http://registry.npmjs.org/transitive/-/transitive-0.0.0pre5.tgz"}},"0.0.0pre6":{"name":"transitive","description":"nothing to see here","version":"0.0.0pre6","repository":{"type":"git","url":"git://github.com/aaronblohowiak/Transitive.git"},"author":{"name":"Aaron Blohowiak","email":"aaron.blohowiak@gmail.com"},"directories":{"lib":"."},"main":"index","engines":{"node":"*"},"devDependencies":{"optimist":"0.0.3"},"dependencies":{"push-it":"0.0.1pre6","shared-views":"0.6.1","uuid-pure":"1.0.4","underscore":"1.1.6","connect":"0.5.6"},"bin":{"transitive":"./command.js"},"dont_announce":true,"_id":"transitive@0.0.0pre6","_engineSupported":true,"_npmVersion":"0.3.18","_nodeVersion":"v0.4.7","files":[""],"_defaultsLoaded":true,"dist":{"shasum":"1cec7ebfafa2a30f19c161b25f74694a06032d6e","tarball":"http://registry.npmjs.org/transitive/-/transitive-0.0.0pre6.tgz"}},"0.0.0pre7":{"name":"transitive","description":"nothing to see here","version":"0.0.0pre7","repository":{"type":"git","url":"git://github.com/aaronblohowiak/Transitive.git"},"author":
+silly chunk {"name":"Aaron Blohowiak","email":"aaron.blohowiak@gmail.com"},"directories":{"lib":"."},"main":"index","engines":{"node":"*"},"devDependencies":{"optimist":"0.0.3"},"dependencies":{"push-it":"0.0.1pre6","shared-views":"0.6.1","uuid-pure":"1.0.4","underscore":"1.1.6","connect":"0.5.6","findit":"0.0.3"},"bin":{"transitive":"./command.js"},"dont_announce":true,"_id":"transitive@0.0.0pre7","_engineSupported":true,"_npmVersion":"0.3.18","_nodeVersion":"v0.4.7","files":[""],"_defaultsLoaded":true,"dist":{"shasum":"0b3b93345255887f7ea908c0a205e41c113bc35b","tarball":"http://registry.npmjs.org/transitive/-/transitive-0.0.0pre7.tgz"}},"0.0.0pre8":{"name":"transitive","description":"nothing to see here","version":"0.0.0pre8","repository":{"type":"git","url":"git://github.com/aaronblohowiak/Transitive.git"},"author":{"name":"Aaron Blohowiak","email":"aaron.blohowiak@gmail.com"},"directories":{"lib":"."},"main":"index","engines":{"node":"*"},"devDependencies":{"optimist":"0.0.3"},"dependencies":{"push-it":"0.0.1pre6","shared-views":"0.6.1","uuid-pure":"1.0.4","underscore":"1.1.6","connect":"0.5.6","findit":"0.0.3","haml":"0.4.0"},"bin":{"transitive":"./command.js"},"dont_announce":true,"_id":"transitive@0.0.0pre8","_engineSupported":true,"_npmVersion":"0.3.18","_nodeVersion":"v0.4.7","files":[""],"_defaultsLoaded":true,"dist":{"shasum":"86bb24d7d397bf0aa150f5f476b628ed9c3add99","tarball":"http://registry.npmjs.org/transitive/-/transiti
+silly chunk ve-0.0.0pre8.tgz"}},"0.0.0pre9":{"name":"transitive","description":"nothing to see here","version":"0.0.0pre9","repository":{"type":"git","url":"git://github.com/aaronblohowiak/Transitive.git"},"author":{"name":"Aaron Blohowiak","email":"aaron.blohowiak@gmail.com"},"directories":{"lib":"."},"main":"index","engines":{"node":"*"},"devDependencies":{"optimist":"0.0.3"},"dependencies":{"push-it":"0.0.1pre6","shared-views":"0.6.1","uuid-pure":"1.0.4","underscore":"1.1.6","connect":"0.5.6","findit":"0.0.3","haml":"0.4.0"},"bin":{"transitive":"./command.js"},"dont_announce":true,"_id":"transitive@0.0.0pre9","_engineSupported":true,"_npmVersion":"0.3.18","_nodeVersion":"v0.4.7","files":[""],"_defaultsLoaded":true,"dist":{"shasum":"5cf7a63222a3075dfd6e88e7b039a1a2c09bf353","tarball":"http://registry.npmjs.org/transitive/-/transitive-0.0.0pre9.tgz"}},"0.0.0pre10":{"name":"transitive","description":"nothing to see here","version":"0.0.0pre10","repository":{"type":"git","url":"git://github.com/aaronblohowiak/Transitive.git"},"author":{"name":"Aaron Blohowiak","email":"aaron.blohowiak@gmail.com"},"directories":{"lib":"."},"main":"index","engines":{"node":"*"},"devDependencies":{"optimist":"0.0.3"},"dependencies":{"push-it":"0.0.1pre6","shared-views":"0.6.1","uuid-pure":"1.0.4","underscore":"1.1.6","connect":"0.5.6","findit":"0.0.3","haml":"0.4.0"},"bin":{"transitive":"./command.js"},"dont_announce":true,"_id":"transitive@0.0.0pre10","_en
+silly chunk gineSupported":true,"_npmVersion":"0.3.18","_nodeVersion":"v0.4.7","files":[""],"_defaultsLoaded":true,"dist":{"shasum":"04117b6019c93b026821faea5fcd715d532c50d4","tarball":"http://registry.npmjs.org/transitive/-/transitive-0.0.0pre10.tgz"}},"0.0.0pre11":{"name":"transitive","description":"nothing to see here","version":"0.0.0pre11","repository":{"type":"git","url":"git://github.com/aaronblohowiak/Transitive.git"},"author":{"name":"Aaron Blohowiak","email":"aaron.blohowiak@gmail.com"},"directories":{"lib":"."},"main":"index","engines":{"node":"*"},"devDependencies":{"optimist":"0.0.3"},"dependencies":{"push-it":"0.0.1pre6","shared-views":"0.6.1","uuid-pure":"1.0.4","underscore":"1.1.6","connect":"0.5.6","findit":"0.0.3","haml":"0.4.0"},"bin":{"transitive":"./command.js"},"dont_announce":true,"_id":"transitive@0.0.0pre11","_engineSupported":true,"_npmVersion":"0.3.18","_nodeVersion":"v0.4.7","files":[""],"_defaultsLoaded":true,"dist":{"shasum":"1e078da31261ca537aed4c7d8083eeec4b4f09b6","tarball":"http://registry.npmjs.org/transitive/-/transitive-0.0.0pre11.tgz"}},"0.0.0pre12":{"name":"transitive","description":"very rough version. please ignore","version":"0.0.0pre12","repository":{"type":"git","url":"git://github.com/aaronblohowiak/Transitive.git"},"author":{"name":"Aaron Blohowiak","email":"aaron.blohowiak@gmail.com"},"directories":{"lib":"."},"main":"index","engines":{"node":"*"},"devDependencies":{"optimist":"0.0.3"},"dep
+silly chunk endencies":{"push-it":"0.0.1pre6","shared-views":"0.6.1","uuid-pure":"1.0.4","underscore":"1.1.6","connect":"0.5.6","findit":"0.0.3","haml":"0.4.0"},"bin":{"transitive":"./command.js"},"dont_announce":true,"_id":"transitive@0.0.0pre12","_engineSupported":true,"_npmVersion":"0.3.18","_nodeVersion":"v0.4.7","files":[""],"_defaultsLoaded":true,"dist":{"shasum":"e0bfa97eff0353db6dc3697973db9459efbafd5e","tarball":"http://registry.npmjs.org/transitive/-/transitive-0.0.0pre12.tgz"}},"0.0.0pre13":{"name":"transitive","description":"very rough version. please ignore","version":"0.0.0pre13","repository":{"type":"git","url":"git://github.com/aaronblohowiak/Transitive.git"},"author":{"name":"Aaron Blohowiak","email":"aaron.blohowiak@gmail.com"},"directories":{"lib":"."},"main":"index","engines":{"node":"*"},"devDependencies":{},"dependencies":{"optimist":"0.0.3","push-it":"0.0.1pre8","shared-views":"0.6.1","uuid-pure":"1.0.10","underscore":"1.1.6","connect":"0.5.6","findit":"0.0.3","haml":"0.4.0"},"bin":{"transitive":"./command.js"},"dont_announce":true,"_id":"transitive@0.0.0pre13","_engineSupported":true,"_npmVersion":"1.0.6","_nodeVersion":"v0.4.7","_defaultsLoaded":true,"dist":{"shasum":"b83aa1db198504f9563b386fe58b9684839441f2","tarball":"http://registry.npmjs.org/transitive/-/transitive-0.0.0pre13.tgz"},"scripts":{}}},"maintainers":[{"name":"aaronblohowiak","email":"aaron.blohowiak@gmail.com"}],"time":{"0.0.0pre2":"2011-05-11T01:
+silly chunk 57:43.473Z","0.0.0pre3":"2011-05-11T02:05:42.676Z","0.0.0pre4":"2011-05-12T06:29:11.020Z","0.0.0pre5":"2011-05-12T06:33:03.147Z","0.0.0pre6":"2011-05-12T06:39:32.982Z","0.0.0pre7":"2011-05-12T07:01:09.911Z","0.0.0pre8":"2011-05-12T07:06:26.582Z","0.0.0pre9":"2011-05-12T07:13:55.226Z","0.0.0pre10":"2011-05-12T07:25:07.146Z","0.0.0pre11":"2011-05-12T07:40:05.265Z","0.0.0pre12":"2011-05-12T07:52:20.819Z","0.0.0pre13":"2011-05-15T18:00:57.697Z"},"author":{"name":"Aaron Blohowiak","email":"aaron.blohowiak@gmail.com"},"repository":{"type":"git","url":"git://github.com/aaronblohowiak/Transitive.git"}}
+info Already published transitive@0.0.0pre13
+verbose uploading bin dists []
+ERR! publish fail Cannot publish over existing version.
+ERR! publish fail Bump the 'version' field, set the --force flag, or
+ERR! publish fail     npm unpublish 'transitive@0.0.0pre13'
+ERR! publish fail and try again
+ERR! 
+ERR! System Darwin 10.7.0
+ERR! command "node" "/usr/local/bin/npm" "publish"
+verbose exit [ 1, true ]

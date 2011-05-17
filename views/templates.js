@@ -1,4 +1,4 @@
-//TODO: factor this out to use SubStack's find
+var path = require("path");
 var find = require('findit').findSync;
 
 var e = {};
@@ -31,7 +31,7 @@ var filenamesForPaths = function(paths){
 e.standard = function(root, options){
   var dirs = options.directories;
   var view_dir = root+"/"+dirs.views.path;
-  var Haml = require("Haml"); //change this to be smarter!!
+  var Haml = require("haml"); //change this to be smarter!!
 
   filenames = filenamesForPaths(view_dir);
 
@@ -57,12 +57,14 @@ e.standard = function(root, options){
 
   var tethers = this.standardLive(root+"/"+dirs.liveRenders.path, compiledTemplates.functions);
   
-  var generatedDir = root + "/" + dirs.generated.path; 
-  var tetherStrings = sharedViews.templateFunctionsToStrings(tethers);
-  sharedViews.writeTemplateStrings(generatedDir+ "/tethers.js", "$tethers", tetherStrings);
+  if(process.env["SKIP_GENERATION"] != "true"){
+    var generatedDir = root + "/" + dirs.generated.path; 
+    var tetherStrings = sharedViews.templateFunctionsToStrings(tethers);
+    sharedViews.writeTemplateStrings(generatedDir+ "/tethers.js", "$tethers", tetherStrings);
 
-  var templateStrings = sharedViews.templateFunctionsToStrings(compiledTemplates.functions);  
-  sharedViews.writeTemplateStrings(generatedDir + "/templates.js", "$templates", templateStrings);
+    var templateStrings = sharedViews.templateFunctionsToStrings(compiledTemplates.functions);  
+    sharedViews.writeTemplateStrings(generatedDir + "/templates.js", "$templates", templateStrings);
+  }
 
   return compiledTemplates.functions;
 }
@@ -70,7 +72,13 @@ e.standard = function(root, options){
 e.standardLive = function(userDir, $templates){
   var $tethers = {};
   this.requireLiveUpdates(__dirname+"/live-renders", $templates, $tethers);
-  this.requireLiveUpdates(userDir, $templates, $tethers);
+  
+  if(path.existsSync(userDir)){
+    this.requireLiveUpdates(userDir, $templates, $tethers);
+  }else{
+    console.log("no user live-renders dir found.")
+  }
+
   
   return $tethers;
 }
