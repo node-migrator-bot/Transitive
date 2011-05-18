@@ -1,0 +1,10 @@
+digraph page_render{
+  or[label="document.onReady"]
+  hub[label="ViewBindings"]
+  pi[label="Push-It"]
+  handlers[label="LiveRender\nupdate"]
+  
+  or -> hub [label="iterate over all the ViewBindings"]
+  hub -> pi [label="subscribe to \n each data.id"]
+  hub -> handlers [label="bind the LiveRender \n updaters to events"]
+}

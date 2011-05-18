@@ -10,14 +10,20 @@
 <body>
   <div id="container">
     <header>
-      <h1>Transitive.io Manual &amp; Documentation</h1>
+      <h1>Transitive.io Documentation &amp; API</h1>
       <div id="gtoc">
-        <p><a href="index.html">Index</a> | <a href="all.html">View on single page</a></p>
+        <p><a href="http://transitive.io">Transitive.io</a> | <a href="index.html">Documentation Home</a> | <a href="all.html">View on single page</a></p>
       </div>
       <hr />
     </header>
-    <div id="toc"><h2>Table Of Contents</h2><ul><li><a href="#overview">Overview</a><ul><li><a href="#key_Features">Key Features</a><ul><li><a href="#broadcasting_Data">Broadcasting Data</a></li><li><a href="#live_Renders">Live Renders</a></li></ul></li><li><a href="#additional_Benefits">Additional Benefits</a><ul><li><a href="#reasonable_Defaults">Reasonable Defaults</a></li><li><a href="#limited_Scope">Limited Scope</a></li><li><a href="#customizeability">Customizeability</a></li></ul></li></ul></li><li><a href="#initializing_Transitive.">Initializing Transitive.</a><ul><li><a href="#global_Mixins">Global Mixins</a></li><li><a href="#views_Assets">Views & Assets</a><ul><li><a href="#views_">Views:</a></li><li><a href="#assets_">Assets:</a></li></ul></li><li><a href="#initialize_Server">Initialize Server</a></li><li><a href="#setup_the_router">Setup the router</a></li></ul></li><li><a href="#views">Views</a><ul><li><a href="#transitive.Views">Transitive.Views</a><ul><li><a href="#render">render(templateName, data)</a></li><li><a href="#renderPage">renderPage(templateName, data, layoutName)</a></li></ul></li><li><a href="#liveRender">LiveRender</a><ul><li><a href="#prepare">prepare(templateName, data)</a></li><li><a href="#update">update(event)</a></li><li><a href="#name">name</a></li></ul></li><li><a href="#renderContext">RenderContext</a><ul><li><a href="#render">render(templateName, data)</a></li><li><a href="#renderLive">renderLive(name, templateName, data)</a></li></ul></li><li><a href="#viewBinding">ViewBinding</a></li></ul></li></ul><hr /></div>
+    <div id="toc"><h2>Table Of Contents</h2><ul><li><a href="#overview">Overview</a><ul><li><a href="#key_Features">Key Features</a><ul><li><a href="#broadcasting_Data">Broadcasting Data</a></li><li><a href="#live_Renders">Live Renders</a></li></ul></li><li><a href="#additional_Benefits">Additional Benefits</a><ul><li><a href="#reasonable_Defaults">Reasonable Defaults</a></li><li><a href="#customizeability">Customizeability</a></li><li><a href="#limited_Scope">Limited Scope</a></li></ul></li><li><a href="#how_does_it_work_">How does it work?</a><ul><li><a href="#user_requests_a_page_">User requests a page:</a></li><li><a href="#the_page_loads_in_the_browser">The page loads in the browser</a></li><li><a href="#the_Data_Changes">The Data Changes</a></li></ul></li></ul></li><li><a href="#initializing_Transitive.">Initializing Transitive.</a><ul><li><a href="#global_Mixins">Global Mixins</a></li><li><a href="#views_Assets">Views & Assets</a><ul><li><a href="#views_">Views:</a></li><li><a href="#assets_">Assets:</a></li></ul></li><li><a href="#initialize_Server">Initialize Server</a></li><li><a href="#setup_the_router">Setup the router</a></li></ul></li><li><a href="#views">Views</a><ul><li><a href="#templates">Templates</a><ul><li><a href="#compilation">compilation</a></li><li><a href="#engines">engines</a></li></ul></li><li><a href="#transitive.Views">Transitive.Views</a><ul><li><a href="#render">render(templateName, data)</a></li><li><a href="#renderPage">renderPage(templateName, data, layoutName)</a></li></ul></li><li><a href="#liveRender">LiveRender</a><ul><li><a href="#prepare">prepare(templateName, data)</a></li><li><a href="#update">update(event)</a></li><li><a href="#name">name</a></li></ul></li><li><a href="#renderContext">RenderContext</a><ul><li><a href="#render">render(templateName, data)</a></li><li><a href="#renderLive">renderLive(name, templateName, data)</a></li></ul></li><li><a href="#viewBinding">ViewBinding</a></li></ul></li><li><a href="#directories">Directories</a><ul><li><a href="#views">views</a></li><li><a href="#models">models</a></li><li><a href="#collections">collections</a></li><li><a href="#public">public</a></li><li><a href="#clientJavascripts">clientJavascripts</a></li><li><a href="#images">images</a></li><li><a href="#css">css</a></li><li><a href="#generated">generated</a></li><li><a href="#liveRenders">liveRenders</a></li></ul></li></ul><hr /></div>
 <h2 id="overview">Overview</h2>
+
+<p><img alt="Transitive concept" src="img/concept.png"></img></p>
+
+<p>When a user sends a change to the server, that change is automatically pushed out to other users.</p>
+
+<p>Transitive provides a framework to help you build these kind of "real-time" applications.</p>
 
 <p>Transitive has two key features:</p>
 
@@ -25,11 +31,13 @@
 
 <p>Additionally, Transitive provides:</p>
 
-<ul><li>Reasonable Defaults</li><li>Limited Scope</li><li>Customizeability</li></ul>
+<ul><li>Reasonable Defaults</li><li>Customizeability</li><li>Limited Scope</li></ul>
 
 <h3 id="key_Features">Key Features</h3>
 
 <h4 id="broadcasting_Data">Broadcasting Data</h4>
+
+<p><img alt="Transitive concept" src="img/broadcasting_data.png"></img></p>
 
 <p>Broadcasting data is the ability for your persistence layer to emit events when your data changes.  Transitive provides a very thin wrapper around <a href="http://github.com/aaronblohowiak/Push-It">Push-It</a></p>
 
@@ -37,7 +45,7 @@
 
 <p>LiveRenders update the DOM when there is an update to the data. <a href="views.html#liveRender">LiveRender documentation</a> </p>
 
-<p>Calling a "publish" function when your data changes is easy.  Updating the DOM when you know the data has changed is a lot harder.  Transitive provides a lot of support for updaters.</p>
+<p>Calling a "publish" function when your data changes is easy.  Updating the DOM when you know the data has changed is a lot harder.  Transitive provides a lot of support for the template rendering and updating process through <a href="views.html#liveRender">LiveRenders</a>.</p>
 
 <h3 id="additional_Benefits">Additional Benefits</h3>
 
@@ -45,15 +53,35 @@
 
 <p>Transitive provides example broadcasting datastores (backed by redis) and example render updaters (replace, prepend, addRemove), but you should consider these examples and feel free to implement your own once you have a basic understanding of the system.</p>
 
+<h4 id="customizeability">Customizeability</h4>
+
+<p>The events your data broadcasts and the kinds of updates you'd like to make are both very application specific, so every effort has been made to streamline the process of creating custom broadcasting data stores and LiveRenders.  Transitive provides the structure and framework so you can focus on your application-specifc code</p>
+
+<p>I'd like to support an explicit plugin system soon.  If you have ideas about this, or would like to pitch in, please email me.</p>
+
 <h4 id="limited_Scope">Limited Scope</h4>
 
 <p>Transitive <em>does not</em> provide an ORM, permissions framework, django_admin-style interface or complex controller/router.  These things are welcome as plugins, and I am more than happy to provide support for anyone interested in building such things.</p>
 
-<h4 id="customizeability">Customizeability</h4>
+<h3 id="how_does_it_work_">How does it work?</h3>
 
-<p>The events your data broadcasts and the kinds of updates you'd like to make are both very application specific, so every effort has been made to streamline the process of creating custom broadcasting data stores and render updaters.  Transitive provides the structure and framework so you can focus on your application-specifc code</p>
+<h4 id="user_requests_a_page_">User requests a page:</h4>
 
-<p>I'd like to support an explicit plugin system soon.  If you have ideas about this, or would like to pitch in, please email me.</p>
+<p><img alt="Initial Render" src="img/page_render.png"></img></p>
+
+<ul><li><a href="views.html">Views</a></li><li><a href="views.html#templates">Templates</a></li><li><a href="views.html#viewBinding">ViewBindings</a></li><li><a href="views.html#renderContext">RenderContext</a></li></ul>
+
+<h4 id="the_page_loads_in_the_browser">The page loads in the browser</h4>
+
+<p><img alt="Page Loads" src="img/page_load.png"></img></p>
+
+<ul><li><a href="views.html#viewBinding">ViewBindings</a></li><li><a href="views.html#liveRender">LiveRender</a></li></ul>
+
+<h4 id="the_Data_Changes">The Data Changes</h4>
+
+<p><img alt="Data changes" src="img/live_render.png"></img></p>
+
+<ul><li><a href="views.html#liveRender">LiveRender</a></li></ul>
 
 <hr />
 
@@ -101,7 +129,23 @@
 
 <h2 id="views">Views</h2>
 
-<p>To learn about how views are compiled, please read about the <a href="boot.html">boot process</a></p>
+<p>Views are the combination of <a href="#templates">Templates</a>, <a href="#liveRender">LiveRenders</a> and a <a href="#renderContext">RenderContext</a>.  The server compiles your <a href="#templates">Templates</a> during the <a href="boot.html">Boot</a> process.  Normally, you will create your own Templates and LiveRenders by creating files in the <a href="magic_values.html">appropriate folders</a>, and will interact with your views through <a href="#transitive.Views">Transitive.Views</a>. </p>
+
+<h3 id="templates">Templates</h3>
+
+<p>By default, templates reside in options.root + "/templates"</p>
+
+<h4 id="compilation">compilation</h4>
+
+<p>Templates are compiled by <a href="http://github.com/aaronblohowiak/shared-views">Shared-Views</a>.  Filenames are converted to template names by removing the template folder path and the file extension from the file name.  For instance, you'd render "/var/www/example.com/templates/user/profile.haml" by calling <code>render("user/profile", user)</code>.  There is <em>no support</em> for relative view names.  You may specify your own <code>filenameToTemplateName(filename)</code> function by overriding the default. </p>
+
+<p>To override the default configuration, pass a valid Shared-Views configuration to <code>Transitive.initialize(scope, options)</code> as <code>options.sharedViewConfig</code>.</p>
+
+<h4 id="engines">engines</h4>
+
+<p>By default, Transitive supports <a href="http://github.com/creationix/haml-js">Haml-js</a> with <code>escapeHtmlByDefault</code> set to <code>true</code> and a custom html escaping function.</p>
+
+<p>Engines <em>MUST</em> accept the template source and return a function that accepts a locals object and returns html.  The function will be executed with a <a href="#renderContext">RenderContext</a> as <code>this</code>.</p>
 
 <h3 id="transitive.Views">Transitive.Views</h3>
 
@@ -190,6 +234,52 @@
 <ul><li><code>element</code>: a cached <code>jQuery('#'+elementId)</code> for performance</li></ul>
 
 <p>You should not have to create a ViewBinding.  It is documented here as it is the <code>this</code> context for a LiveRender's <code>update</code> method.</p>
+
+<hr />
+
+<h2 id="directories">Directories</h2>
+
+<p> All directories are relative to options.root. It is included for completeness.</p>
+
+<h3 id="views">views</h3>
+
+<ul><li>Path: options.root+/views</li><li>Description: raw templates</li><li>Additional Info: Nested subdirectories will also be automatically scanned for templates</li></ul>
+
+<h3 id="models">models</h3>
+
+<ul><li>Path: options.root+/models</li><li>Description: model definitions</li><li>Additional Info: Domain model definitions that form the basic datatypes for your application</li></ul>
+
+<h3 id="collections">collections</h3>
+
+<ul><li>Path: options.root+/collections</li><li>Description: collection definitions</li><li>Additional Info: first-class collection objects</li></ul>
+
+<h3 id="public">public</h3>
+
+<ul><li>Path: options.root+/public</li><li>Description: static assets</li><li>Additional Info: All of the contents of this directory will be served up to http requests without any authentication or authorization required.</li></ul>
+
+<h3 id="clientJavascripts">clientJavascripts</h3>
+
+<ul><li>Path: options.root+/public/javascripts</li><li>Description: client-only javascripts</li><li>Additional Info: Currently served as-is, eventually may be minified and concatenated for performance</li></ul>
+
+<h3 id="images">images</h3>
+
+<ul><li>Path: options.root+/public/images</li><li>Description: images used in site design</li><li>Additional Info: sprites, animated gifs, lolcats, et cetera</li></ul>
+
+<h3 id="css">css</h3>
+
+<ul><li>Path: options.root+/public/css</li><li>Description: static stylesheets</li><li>Additional Info: Currently served as-is, eventually may be minified and concatenated for performance</li></ul>
+
+<h3 id="generated">generated</h3>
+
+<ul><li>Path: options.root+/public/generated</li><li>Description: generated assets</li><li>Additional Info: Compiled templates and other automatically generated files are served here.</li></ul>
+
+<h3 id="liveRenders">liveRenders</h3>
+
+<ul><li>Path: options.root+/live-renders</li><li>Description: custom live renders</li><li>Additional Info: Custom modules for rendering and updating live views.</li></ul>
+      <hr />
+      <div id="gtoc">
+        <p><a href="http://transitive.io">Transitive.io</a> | <a href="index.html">Documentation Home</a> | <a href="all.html">View on single page</a></p>
+      </div>
   </div>
 </body>
 </html>

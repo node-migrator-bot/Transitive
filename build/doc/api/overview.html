@@ -10,14 +10,20 @@
 <body>
   <div id="container">
     <header>
-      <h1>Transitive.io Manual &amp; Documentation</h1>
+      <h1>Transitive.io Documentation &amp; API</h1>
       <div id="gtoc">
-        <p><a href="index.html">Index</a> | <a href="all.html">View on single page</a></p>
+        <p><a href="http://transitive.io">Transitive.io</a> | <a href="index.html">Documentation Home</a> | <a href="all.html">View on single page</a></p>
       </div>
       <hr />
     </header>
-    <div id="toc"><h2>Table Of Contents</h2><ul><li><a href="#overview">Overview</a><ul><li><a href="#key_Features">Key Features</a><ul><li><a href="#broadcasting_Data">Broadcasting Data</a></li><li><a href="#live_Renders">Live Renders</a></li></ul></li><li><a href="#additional_Benefits">Additional Benefits</a><ul><li><a href="#reasonable_Defaults">Reasonable Defaults</a></li><li><a href="#limited_Scope">Limited Scope</a></li><li><a href="#customizeability">Customizeability</a></li></ul></li></ul></li></ul><hr /></div>
+    <div id="toc"><h2>Table Of Contents</h2><ul><li><a href="#overview">Overview</a><ul><li><a href="#key_Features">Key Features</a><ul><li><a href="#broadcasting_Data">Broadcasting Data</a></li><li><a href="#live_Renders">Live Renders</a></li></ul></li><li><a href="#additional_Benefits">Additional Benefits</a><ul><li><a href="#reasonable_Defaults">Reasonable Defaults</a></li><li><a href="#customizeability">Customizeability</a></li><li><a href="#limited_Scope">Limited Scope</a></li></ul></li><li><a href="#how_does_it_work_">How does it work?</a><ul><li><a href="#user_requests_a_page_">User requests a page:</a></li><li><a href="#the_page_loads_in_the_browser">The page loads in the browser</a></li><li><a href="#the_Data_Changes">The Data Changes</a></li></ul></li></ul></li></ul><hr /></div>
 <h2 id="overview">Overview</h2>
+
+<p><img alt="Transitive concept" src="img/concept.png"></img></p>
+
+<p>When a user sends a change to the server, that change is automatically pushed out to other users.</p>
+
+<p>Transitive provides a framework to help you build these kind of "real-time" applications.</p>
 
 <p>Transitive has two key features:</p>
 
@@ -25,11 +31,13 @@
 
 <p>Additionally, Transitive provides:</p>
 
-<ul><li>Reasonable Defaults</li><li>Limited Scope</li><li>Customizeability</li></ul>
+<ul><li>Reasonable Defaults</li><li>Customizeability</li><li>Limited Scope</li></ul>
 
 <h3 id="key_Features">Key Features</h3>
 
 <h4 id="broadcasting_Data">Broadcasting Data</h4>
+
+<p><img alt="Transitive concept" src="img/broadcasting_data.png"></img></p>
 
 <p>Broadcasting data is the ability for your persistence layer to emit events when your data changes.  Transitive provides a very thin wrapper around <a href="http://github.com/aaronblohowiak/Push-It">Push-It</a></p>
 
@@ -37,7 +45,7 @@
 
 <p>LiveRenders update the DOM when there is an update to the data. <a href="views.html#liveRender">LiveRender documentation</a> </p>
 
-<p>Calling a "publish" function when your data changes is easy.  Updating the DOM when you know the data has changed is a lot harder.  Transitive provides a lot of support for updaters.</p>
+<p>Calling a "publish" function when your data changes is easy.  Updating the DOM when you know the data has changed is a lot harder.  Transitive provides a lot of support for the template rendering and updating process through <a href="views.html#liveRender">LiveRenders</a>.</p>
 
 <h3 id="additional_Benefits">Additional Benefits</h3>
 
@@ -45,15 +53,39 @@
 
 <p>Transitive provides example broadcasting datastores (backed by redis) and example render updaters (replace, prepend, addRemove), but you should consider these examples and feel free to implement your own once you have a basic understanding of the system.</p>
 
+<h4 id="customizeability">Customizeability</h4>
+
+<p>The events your data broadcasts and the kinds of updates you'd like to make are both very application specific, so every effort has been made to streamline the process of creating custom broadcasting data stores and LiveRenders.  Transitive provides the structure and framework so you can focus on your application-specifc code</p>
+
+<p>I'd like to support an explicit plugin system soon.  If you have ideas about this, or would like to pitch in, please email me.</p>
+
 <h4 id="limited_Scope">Limited Scope</h4>
 
 <p>Transitive <em>does not</em> provide an ORM, permissions framework, django_admin-style interface or complex controller/router.  These things are welcome as plugins, and I am more than happy to provide support for anyone interested in building such things.</p>
 
-<h4 id="customizeability">Customizeability</h4>
+<h3 id="how_does_it_work_">How does it work?</h3>
 
-<p>The events your data broadcasts and the kinds of updates you'd like to make are both very application specific, so every effort has been made to streamline the process of creating custom broadcasting data stores and render updaters.  Transitive provides the structure and framework so you can focus on your application-specifc code</p>
+<h4 id="user_requests_a_page_">User requests a page:</h4>
 
-<p>I'd like to support an explicit plugin system soon.  If you have ideas about this, or would like to pitch in, please email me.</p>
+<p><img alt="Initial Render" src="img/page_render.png"></img></p>
+
+<ul><li><a href="views.html">Views</a></li><li><a href="views.html#templates">Templates</a></li><li><a href="views.html#viewBinding">ViewBindings</a></li><li><a href="views.html#renderContext">RenderContext</a></li></ul>
+
+<h4 id="the_page_loads_in_the_browser">The page loads in the browser</h4>
+
+<p><img alt="Page Loads" src="img/page_load.png"></img></p>
+
+<ul><li><a href="views.html#viewBinding">ViewBindings</a></li><li><a href="views.html#liveRender">LiveRender</a></li></ul>
+
+<h4 id="the_Data_Changes">The Data Changes</h4>
+
+<p><img alt="Data changes" src="img/live_render.png"></img></p>
+
+<ul><li><a href="views.html#liveRender">LiveRender</a></li></ul>
+      <hr />
+      <div id="gtoc">
+        <p><a href="http://transitive.io">Transitive.io</a> | <a href="index.html">Documentation Home</a> | <a href="all.html">View on single page</a></p>
+      </div>
   </div>
 </body>
 </html>

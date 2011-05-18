@@ -1,0 +1,9 @@
+digraph live_render{
+  s[label="Server" shape="box3d"]
+  e[label="Push-It (client)"]
+  h[label="LiveRender updater"]
+  d[label="DOM"]
+  s -> e[label="change event\nwebsockets or comet"]
+  e -> h[label="event dispatched\n LiveRender updater invoked"]
+  h -> d[label="updates DOM"]
+}

@@ -10,16 +10,32 @@
 <body>
   <div id="container">
     <header>
-      <h1>Transitive.io Manual &amp; Documentation</h1>
+      <h1>Transitive.io Documentation &amp; API</h1>
       <div id="gtoc">
-        <p><a href="index.html">Index</a> | <a href="all.html">View on single page</a></p>
+        <p><a href="http://transitive.io">Transitive.io</a> | <a href="index.html">Documentation Home</a> | <a href="all.html">View on single page</a></p>
       </div>
       <hr />
     </header>
-    <div id="toc"><h2>Table Of Contents</h2><ul><li><a href="#views">Views</a><ul><li><a href="#transitive.Views">Transitive.Views</a><ul><li><a href="#render">render(templateName, data)</a></li><li><a href="#renderPage">renderPage(templateName, data, layoutName)</a></li></ul></li><li><a href="#liveRender">LiveRender</a><ul><li><a href="#prepare">prepare(templateName, data)</a></li><li><a href="#update">update(event)</a></li><li><a href="#name">name</a></li></ul></li><li><a href="#renderContext">RenderContext</a><ul><li><a href="#render">render(templateName, data)</a></li><li><a href="#renderLive">renderLive(name, templateName, data)</a></li></ul></li><li><a href="#viewBinding">ViewBinding</a></li></ul></li></ul><hr /></div>
+    <div id="toc"><h2>Table Of Contents</h2><ul><li><a href="#views">Views</a><ul><li><a href="#templates">Templates</a><ul><li><a href="#compilation">compilation</a></li><li><a href="#engines">engines</a></li></ul></li><li><a href="#transitive.Views">Transitive.Views</a><ul><li><a href="#render">render(templateName, data)</a></li><li><a href="#renderPage">renderPage(templateName, data, layoutName)</a></li></ul></li><li><a href="#liveRender">LiveRender</a><ul><li><a href="#prepare">prepare(templateName, data)</a></li><li><a href="#update">update(event)</a></li><li><a href="#name">name</a></li></ul></li><li><a href="#renderContext">RenderContext</a><ul><li><a href="#render">render(templateName, data)</a></li><li><a href="#renderLive">renderLive(name, templateName, data)</a></li></ul></li><li><a href="#viewBinding">ViewBinding</a></li></ul></li></ul><hr /></div>
 <h2 id="views">Views</h2>
 
-<p>To learn about how views are compiled, please read about the <a href="boot.html">boot process</a></p>
+<p>Views are the combination of <a href="#templates">Templates</a>, <a href="#liveRender">LiveRenders</a> and a <a href="#renderContext">RenderContext</a>.  The server compiles your <a href="#templates">Templates</a> during the <a href="boot.html">Boot</a> process.  Normally, you will create your own Templates and LiveRenders by creating files in the <a href="magic_values.html">appropriate folders</a>, and will interact with your views through <a href="#transitive.Views">Transitive.Views</a>. </p>
+
+<h3 id="templates">Templates</h3>
+
+<p>By default, templates reside in options.root + "/templates"</p>
+
+<h4 id="compilation">compilation</h4>
+
+<p>Templates are compiled by <a href="http://github.com/aaronblohowiak/shared-views">Shared-Views</a>.  Filenames are converted to template names by removing the template folder path and the file extension from the file name.  For instance, you'd render "/var/www/example.com/templates/user/profile.haml" by calling <code>render("user/profile", user)</code>.  There is <em>no support</em> for relative view names.  You may specify your own <code>filenameToTemplateName(filename)</code> function by overriding the default. </p>
+
+<p>To override the default configuration, pass a valid Shared-Views configuration to <code>Transitive.initialize(scope, options)</code> as <code>options.sharedViewConfig</code>.</p>
+
+<h4 id="engines">engines</h4>
+
+<p>By default, Transitive supports <a href="http://github.com/creationix/haml-js">Haml-js</a> with <code>escapeHtmlByDefault</code> set to <code>true</code> and a custom html escaping function.</p>
+
+<p>Engines <em>MUST</em> accept the template source and return a function that accepts a locals object and returns html.  The function will be executed with a <a href="#renderContext">RenderContext</a> as <code>this</code>.</p>
 
 <h3 id="transitive.Views">Transitive.Views</h3>
 
@@ -109,6 +125,10 @@
 
 <p>You should not have to create a ViewBinding.  It is documented here as it is the <code>this</code> context for a LiveRender's <code>update</code> method.
  </p>
+      <hr />
+      <div id="gtoc">
+        <p><a href="http://transitive.io">Transitive.io</a> | <a href="index.html">Documentation Home</a> | <a href="all.html">View on single page</a></p>
+      </div>
   </div>
 </body>
 </html>

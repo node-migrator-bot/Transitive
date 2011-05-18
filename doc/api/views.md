@@ -1,6 +1,21 @@
 ## Views
 
-To learn about how views are compiled, please read about the [boot process](boot.html)
+Views are the combination of [Templates](#templates), [LiveRenders](#liveRender) and a [RenderContext](#renderContext).  The server compiles your [Templates](#templates) during the [Boot](boot.html) process.  Normally, you will create your own Templates and LiveRenders by creating files in the [appropriate folders](magic_values.html), and will interact with your views through [Transitive.Views](#transitive.Views). 
+
+### Templates
+By default, templates reside in options.root + "/templates"
+
+#### compilation
+
+Templates are compiled by [Shared-Views](http://github.com/aaronblohowiak/shared-views).  Filenames are converted to template names by removing the template folder path and the file extension from the file name.  For instance, you'd render "/var/www/example.com/templates/user/profile.haml" by calling `render("user/profile", user)`.  There is *no support* for relative view names.  You may specify your own `filenameToTemplateName(filename)` function by overriding the default. 
+
+To override the default configuration, pass a valid Shared-Views configuration to `Transitive.initialize(scope, options)` as `options.sharedViewConfig`.
+
+#### engines
+
+By default, Transitive supports [Haml-js](http://github.com/creationix/haml-js) with `escapeHtmlByDefault` set to `true` and a custom html escaping function.
+
+Engines *MUST* accept the template source and return a function that accepts a locals object and returns html.  The function will be executed with a [RenderContext](#renderContext) as `this`.
 
 ### Transitive.Views
 
@@ -16,8 +31,6 @@ If called on the server:
 
 #### renderPage(templateName, data, layoutName)
 renderPage creates a new RenderContext and uses it to render templateName with data.locals.  It passes the result to 
-
-
 
 ### LiveRender
 By default, LiveRenders are stored in `options.root+"/live-renders"`
