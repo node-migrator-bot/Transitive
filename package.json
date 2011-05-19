@@ -1,0 +1,25 @@
+{
+  "name": "transitive",
+  "description": "very rough version. please ignore",
+  "version": "0.0.0pre14",
+  "repository": "git://github.com/Transitive/Transitive.git",
+  "author": "Aaron Blohowiak <aaron.blohowiak@gmail.com>",
+  "directories": {
+    "lib": "."
+  },
+  "main": "index",
+  "devDependencies":{
+  },
+  "dependencies": {
+     "optimist": "0.0.3",
+     "push-it": "0.0.1pre8",
+     "shared-views": "0.6.1",
+     "uuid-pure": "1.0.10",
+     "underscore": "1.1.6",
+     "connect":"0.5.6",
+     "findit":"0.0.3",
+     "haml":"0.4.0"
+   },
+  "bin": {"transitive" : "./command.js"},
+  "dont_announce": true
+}

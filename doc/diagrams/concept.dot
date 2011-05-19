@@ -1,0 +1,14 @@
+digraph transitive {
+  
+  a -> b;
+  b -> c;
+  a -> c[color="#FF0000"];
+  //c -> b;
+  //b -> a;
+  //c -> a[color="#999999"];
+  
+  a[label="", shape="circle"]
+  b[label="", shape="box3d"]
+  c[label="", shape="circle"]
+  { rank=same; a; b; c}
+}

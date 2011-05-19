@@ -1,0 +1,14 @@
+digraph broadcasting{
+  a -> s[color=blue];
+  s -> b;
+  s -> c;
+  s -> d;
+  s -> e;
+
+  a[label="" shape="circle"];
+  b[label="" shape="circle"];
+  c[label="" shape="circle"];
+  d[label="" shape="circle"];
+  e[label="" shape="circle"];
+  s[label="Server" shape="box3d"];
+}

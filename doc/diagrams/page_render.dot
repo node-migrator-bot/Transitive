@@ -1,0 +1,21 @@
+digraph page_render{
+  u[label="User"]
+  s[label="Server" shape="box3d"]
+  rc[label="Router\nController"]
+  v[label="Views.renderPage"]
+  h[label="HTML"]
+  b[label="Bindings"]
+  rt[label="rendering template"]
+  l[label="layout"]
+
+  u -> s [label="user requests page"]
+  s -> rc [label="server dispatches to router and controller"]
+  rc -> v [label="controller renders a page"]
+  v -> rt [label="renders page template"]
+  rt -> h [label="page body \n HTML returned"]
+  rt -> b [label="ViewBindings collected \n from liveRender calls"]
+ 
+  h -> l [label="page content \n inserted in layout"]
+  b -> l [label="ViewBindings embedded as \n $pageData in script tag"]
+  l -> u [label="fully rendered page\n flushed to user"]
+}
