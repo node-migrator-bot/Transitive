@@ -4,6 +4,9 @@
  * [How Does it Work?](overview.html#how_does_it_work_)
 * [Boot](boot.html)
 * [Views](views.html)
+ * [Templates](views.html#templates)
+ * [LiveRenders](views.html#liveRender)
+* [Persistence](persistence.html)
 * [Magic Values](magic_values.html)
 
 ### Transitive Links

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>persistence - Transitive.io Manual &amp; Documentation</title>
+  <link type="image/x-icon" rel="icon" href="/favicon.ico" />
+  <link type="image/x-icon" rel="shortcut icon" href="/favicon.ico" />
+  <link rel="stylesheet" href="assets/style.css" type="text/css" media="all" />
+  <link rel="stylesheet" href="assets/sh.css" type="text/css" media="all"/>
+</head>
+<body>
+  <div id="container">
+    <header>
+      <h1>Transitive.io Documentation &amp; API</h1>
+      <div id="gtoc">
+        <p><a href="http://transitive.io">Transitive.io</a> | <a href="index.html">Documentation Home</a> | <a href="all.html">View on single page</a></p>
+      </div>
+      <hr />
+    </header>
+    <div id="toc"><h2>Table Of Contents</h2><ul><li><a href="#persistence.">Persistence.</a><ul><li><a href="#broadcasting_Data">Broadcasting Data</a></li></ul></li></ul><hr /></div>
+<h2 id="persistence.">Persistence.</h2>
+
+<p>Transitive does not provide an ORM, or even the concept of a "Domain Model."</p>
+
+<p>Transitive deals with the shuffling of datastructures around to interested parties.  Hydrating domain objects with that data and writing that data to disk are currently out of scope.</p>
+
+<p>Modern applications use many different kinds of "databases" for different kinds of data -- RDBMS, Document Stores, Redis, HBase, and even using RESTful APIs to other services.  Each of these has different transactional semantics and unique features.  Transitive is mostly ambivelant about how you persist your data.  Instead of providing a least-common-denominator abstraction, Transitive just reqiures that your perisistence layer emits events when things change.  </p>
+
+<p>You can use persistence layers that don't have this ability, but then you'll have to implement it in the application layer, which is pretty easy. [Guide: Implementing a Broadcasting Data store]() </p>
+
+<p>Domain Models are tricky.</p>
+
+<h3 id="broadcasting_Data">Broadcasting Data</h3>
+      <hr />
+      <div id="gtoc">
+        <p><a href="http://transitive.io">Transitive.io</a> | <a href="index.html">Documentation Home</a> | <a href="all.html">View on single page</a></p>
+      </div>
+  </div>
+</body>
+</html>

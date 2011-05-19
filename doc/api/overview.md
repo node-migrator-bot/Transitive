@@ -19,17 +19,17 @@ Additionally, Transitive provides:
 
 ### Key Features
 
+ Updating the DOM when you know the data has changed is a lot harder.  Transitive provides a lot of support for the template rendering and updating process through [LiveRenders](views.html#liveRender).
+
 #### Broadcasting Data
 
 ![Transitive concept](img/broadcasting_data.png)
 
-Broadcasting data is the ability for your persistence layer to emit events when your data changes.  Transitive provides a very thin wrapper around [Push-It](http://github.com/aaronblohowiak/Push-It)
+Broadcasting data is the ability for your persistence layer to emit events when your data changes.  Transitive provides a very thin wrapper around [Push-It](http://github.com/aaronblohowiak/Push-It).  When you save an object, the persistence layer publishes a message to a channel.  The channel name matches the object's id.  It is easy to wrap or extend most database adapters to have this functionality. [BroadcastingData documentation](persistence.html#broadcasting_Data).
 
 #### Live Renders
 
 LiveRenders update the DOM when there is an update to the data. [LiveRender documentation](views.html#liveRender) 
-
-Calling a "publish" function when your data changes is easy.  Updating the DOM when you know the data has changed is a lot harder.  Transitive provides a lot of support for the template rendering and updating process through [LiveRenders](views.html#liveRender).
 
 ### Additional Benefits
 

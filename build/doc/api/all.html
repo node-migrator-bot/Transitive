@@ -35,17 +35,17 @@
 
 <h3 id="key_Features">Key Features</h3>
 
+<p> Updating the DOM when you know the data has changed is a lot harder.  Transitive provides a lot of support for the template rendering and updating process through <a href="views.html#liveRender">LiveRenders</a>.</p>
+
 <h4 id="broadcasting_Data">Broadcasting Data</h4>
 
 <p><img alt="Transitive concept" src="img/broadcasting_data.png"></img></p>
 
-<p>Broadcasting data is the ability for your persistence layer to emit events when your data changes.  Transitive provides a very thin wrapper around <a href="http://github.com/aaronblohowiak/Push-It">Push-It</a></p>
+<p>Broadcasting data is the ability for your persistence layer to emit events when your data changes.  Transitive provides a very thin wrapper around <a href="http://github.com/aaronblohowiak/Push-It">Push-It</a>.  When you save an object, the persistence layer publishes a message to a channel.  The channel name matches the object's id.  It is easy to wrap or extend most database adapters to have this functionality. <a href="persistence.html#broadcasting_Data">BroadcastingData documentation</a>.</p>
 
 <h4 id="live_Renders">Live Renders</h4>
 
 <p>LiveRenders update the DOM when there is an update to the data. <a href="views.html#liveRender">LiveRender documentation</a> </p>
-
-<p>Calling a "publish" function when your data changes is easy.  Updating the DOM when you know the data has changed is a lot harder.  Transitive provides a lot of support for the template rendering and updating process through <a href="views.html#liveRender">LiveRenders</a>.</p>
 
 <h3 id="additional_Benefits">Additional Benefits</h3>
 
