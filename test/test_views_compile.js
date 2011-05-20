@@ -29,6 +29,31 @@ exports["test compiler will compile"] = function(test, assert){
   test.finish();
 };
 
+exports["test render function"] = function(test, assert){
+  var functions = x.Views.compile(x.options);
+  x.Views.templates = functions;
+  
+  var html = x.Views.render("user/profile", {name:"aaron"});
+  assert.equal("<h1>AARON</h1>", html);
+  
+  test.finish();
+};
+
+exports["test render page"] = function(test, assert){
+  var functions = x.Views.compile(x.options);
+  x.Views.templates = functions;
+  
+  var html = x.Views.renderPage("user/profile", {name:"aaron"});
+  
+  console.log(html);
+  
+  assert.ok(html.match(/h1>AARON/));
+  assert.ok(html.match(/pageData = \{/));
+  
+  test.finish();
+};
+
+
 function testViews(templates, assert){
   assert.equal("Hello bob", templates.partial({name:"bob"}));
   assert.equal("<h1>Welcome</h1>", templates.whatever(""));
