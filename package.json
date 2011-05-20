@@ -17,7 +17,7 @@
   "dependencies": {
      "optimist": "0.0.3",
      "push-it": "0.0.1pre8",
-     "shared-views": "0.6.1",
+     "shared-views": "0.7.0",
      "uuid-pure": "1.0.10",
      "underscore": "1.1.6",
      "connect":"0.5.6",

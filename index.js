@@ -1,1 +1,1 @@
-module.exports = require("lib/transitive");
+module.exports = require("./lib/transitive");
