@@ -32,4 +32,10 @@ build/doc/%:
 build/doc/api/assets/%: doc/api_assets/% build/doc/api/assets/
 	cp $< $@
 
-.PHONY: magic_values
+
+test_files = $(wildcard test/test_*.js)
+
+test:
+	node_modules/whiskey/bin/whiskey -t "$(test_files)"
+
+.PHONY: magic_values test

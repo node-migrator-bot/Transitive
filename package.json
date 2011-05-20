@@ -9,6 +9,10 @@
   },
   "main": "index",
   "devDependencies":{
+    "whiskey":"0.3.3",
+    "haml":"0.4.0",
+    "underscore":"1.1.6",
+    "markdown":"0.2.1"
   },
   "dependencies": {
      "optimist": "0.0.3",
@@ -20,6 +24,6 @@
      "findit":"0.0.3",
      "haml":"0.4.0"
    },
-  "bin": {"transitive" : "./command.js"},
+  "bin": {"transitive" : "./cli.js"},
   "dont_announce": true
 }
