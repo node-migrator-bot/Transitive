@@ -35,7 +35,7 @@ LiveRenders update the DOM when there is an update to the data. [LiveRender docu
 
 #### Reasonable Defaults
 
-Transitive provides example broadcasting datastores (backed by redis) and example render updaters (replace, prepend, addRemove), but you should consider these examples and feel free to implement your own once you have a basic understanding of the system.
+Transitive provides example broadcasting data stores (backed by redis) and example render updaters (replace, prepend, addRemove), but you should consider these examples and feel free to implement your own once you have a basic understanding of the system.
 
 #### Customizeability
 

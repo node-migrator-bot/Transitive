@@ -37,5 +37,6 @@ test_files = $(wildcard test/test_*.js)
 
 test:
 	node_modules/whiskey/bin/whiskey -t "$(test_files)"
+	rm -rf test_temp/*
 
 .PHONY: magic_values test
