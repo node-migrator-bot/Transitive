@@ -1,6 +1,6 @@
 ## Initializing Transitive.
 
-Transitive `initialize(scope, options)` does four things:
+Transitive `boot(scope, options)` does four things:
 
   0. Global Mixins
   1. Views & Assets
@@ -34,7 +34,7 @@ On the server, you'll have a `renderPage(templateName, locals, layoutName)` whic
 
 ####  Assets:
 
-Coming soon, Transitive will include an asset packaging system.
+Transitive makes your compiled views and liveRenders available to the browser using [browserify](https://github.com/substack/node-browserify).
 
 ### Initialize Server
 

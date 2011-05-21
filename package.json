@@ -15,14 +15,12 @@
     "markdown":"0.2.1"
   },
   "dependencies": {
-     "optimist": "0.0.3",
      "push-it": "0.0.1pre8",
      "shared-views": "0.7.0",
      "uuid-pure": "1.0.10",
-     "underscore": "1.1.6",
      "connect":"1.4.1",
      "findit":"0.0.3",
-     "haml":"0.4.0"
+     "browserify":"0.4.1"
    },
   "bin": {"transitive" : "./cli.js"},
   "dont_announce": true

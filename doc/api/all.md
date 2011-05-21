@@ -2,6 +2,8 @@
 ---
 @include boot.md
 ---
+@include assets.md
+---
 @include views.md
 ---
 @include persistence
