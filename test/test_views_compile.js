@@ -1,9 +1,14 @@
-var x = new (require("transitive"))();
+var x = new (require("transitive"))(),
+    fs = require("fs");
 
+x.options = {};
 
 exports.setUp = function(test, assert){
   process.chdir("./test/views");
-  x.boot(this);
+  
+  x.options = x.loadOptions({});
+  x.options.writeTemplates = false;
+  
   test.finish();
 };
 

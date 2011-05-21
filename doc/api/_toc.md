@@ -7,7 +7,7 @@
  * [Templates](views.html#templates)
  * [LiveRenders](views.html#liveRender)
 * [Persistence](persistence.html)
-* [Magic Values](magic_values.html)
+* [Options](options.html)
 
 ### Transitive Links
 

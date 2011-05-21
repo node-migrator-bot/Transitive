@@ -4,4 +4,6 @@
 ---
 @include views.md
 ---
-@include magic_values
+@include persistence
+---
+@include options
