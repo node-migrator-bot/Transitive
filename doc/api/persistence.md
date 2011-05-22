@@ -13,11 +13,13 @@ You can use persistence layers that don't have this ability, but then you'll hav
 ** Basic Models **
 
 Basic Models Have:
+
   * Identity
   * Validation
   * Persistence
 
 Basic Models *do not* have:
+
   * The ability to load related models
   * State Machines
   * Serialization

@@ -9,3 +9,5 @@
 @include persistence
 ---
 @include options
+---
+@include credits

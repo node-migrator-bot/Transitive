@@ -1,15 +1,15 @@
 ## Views
 
-Views are the combination of [Templates](#templates), [LiveRenders](#liveRender) and a [RenderContext](#renderContext).  The server compiles your [Templates](#templates) during the [Boot](boot.html) process.  Normally, you will create your own Templates and LiveRenders by creating files in the [appropriate folders](options.html), and will interact with your views through [Transitive.Views](#transitive.Views).
+Views are the combination of [Templates](#templates), [LiveRenders](#liveRender) and a [RenderContext](#renderContext).  The server compiles your [Templates](#templates) during the [Boot](boot.html) process.  Normally, you will create your own Templates and LiveRenders by creating files in the [appropriate folders](options.html), and will interact with your views through [Transitive.Views](#transitive.Views).  Please [see the diagrams](overview.html#entities) for a visual exploration of how the Views system works.  This is the lower-level documentation.
 
 ### Templates
 By default, templates reside in options.root + "/templates"
 
 #### compilation
 
-Templates are compiled by [Shared-Views](http://github.com/aaronblohowiak/shared-views) and written to a node-compatible module file in `options.directories.generated` named `template.js`.  Filenames are converted to template names by removing the template folder path and the file extension from the file name.  For instance, you'd render "/var/www/example.com/templates/user/profile.haml" by calling `render("user/profile", user)`.  There is *no support* for relative view names.  
+Templates are compiled by [Shared-Views](http://github.com/aaronblohowiak/shared-views) and written to a node-compatible module file in `options.directories.generated` named `template.js`.  Filenames are converted to template names by removing the template folder path and the file extension from the file name.  For instance, you'd render `/var/www/example.com/templates/user/profile.haml` by calling `render("user/profile", user)`.  There is *no support* for relative view names.  
 
-Templates are converted to functions using a `template engine` (haml, underscore, etc.) We pick the template engine based on the file extension.
+Templates are converted to functions using a `template engine` (haml, underscore, markdown, etc.) We pick the template engine based on the file extension (`haml`, `u` or `md` by default.)
 
 #### engines
 

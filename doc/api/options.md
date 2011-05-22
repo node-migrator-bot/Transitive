@@ -1,3 +1,8 @@
+## Options
+
+  * Explain how options work
+  * Show example of loading default options and overriding before boot.
+
 ### directories
   
   * templates

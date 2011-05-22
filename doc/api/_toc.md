@@ -9,6 +9,8 @@
  * [LiveRenders](views.html#liveRender)
 * [Persistence](persistence.html)
 * [Options](options.html)
+* [Credits](credits.html)
+
 
 ### Transitive Links
 
