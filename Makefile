@@ -9,7 +9,8 @@ apidoc_dirs = build/doc build/doc/api/ build/doc/api/assets build/doc/api/img
 apiassets = $(subst api_assets,api/assets,$(addprefix build/,$(wildcard doc/api_assets/*)))
 
 clean_doc:
-	rm -rf build/doc/api/*
+	rm -rf build/doc/api/*.html
+	rm -rf build/doc/assets
 
 $(apidoc_dirs):
 	mkdir -p $@
@@ -17,7 +18,14 @@ $(apidoc_dirs):
 magic_values:
 	#node tools/dynamic_docs.js
 
-doc: clean_doc $(apidoc_dirs) magic_values $(apidocs) $(apiassets) $(diagrams)
+clean_diags:
+	rm -rf build/doc/api/img/*
+
+diags: clean_diags $(diagrams)
+
+html: clean_doc $(apidoc_dirs) magic_values $(apidocs) $(apiassets)
+
+doc: clean_diags html diags
 
 build/doc/api/%.html: doc/api/%.md
 	node tools/doctool.js doc/template.html $< > $@
@@ -39,4 +47,4 @@ test:
 	node_modules/whiskey/bin/whiskey -t "$(test_files)"
 	rm -rf test_temp/*
 
-.PHONY: magic_values test
+.PHONY: magic_values test diags

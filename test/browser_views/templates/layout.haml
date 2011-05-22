@@ -1,0 +1,16 @@
+!!!
+%html
+  %head
+    %script{src: "/transitive.js"}
+    %script{src: "/templates.js"}
+    :script
+      Transitive = require("./transitive");
+      Transitive.Views.templates = require("./templates.js");
+    %title
+      Change the title in layout.haml
+  %body
+    .outer-wrapper
+      .inner-wrapper
+        .content!= content
+    :script
+      !{etc}

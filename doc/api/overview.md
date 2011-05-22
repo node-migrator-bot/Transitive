@@ -8,8 +8,8 @@ Transitive provides a framework to help you build these kind of "real-time" appl
 
 Transitive has two key features:
 
-  * Broadcasting data
-  * Live Renders
+  * BroadcastingData
+  * LiveRender
 
 Additionally, Transitive provides:
 
@@ -19,9 +19,9 @@ Additionally, Transitive provides:
 
 ### Key Features
 
- Updating the DOM when you know the data has changed is a lot harder.  Transitive provides a lot of support for the template rendering and updating process through [LiveRenders](views.html#liveRender).
+ BroadcastingData lets everybody who cares when something changes. Live Renders keep the browser's view up to date as the data changes.
 
-#### Broadcasting Data
+#### BroadcastingData
 
 ![Transitive concept](img/broadcasting_data.png)
 
@@ -35,13 +35,15 @@ LiveRenders update the DOM when there is an update to the data. [LiveRender docu
 
 #### Reasonable Defaults
 
-Transitive provides example broadcasting data stores (backed by redis) and example render updaters (replace, prepend, addRemove), but you should consider these examples and feel free to implement your own once you have a basic understanding of the system.
+Transitive provides an example BroadcastingData store (backed by redis) and example LiveRenders (replace, prepend, addRemove), but you should consider these examples and feel free to implement your own once you have a basic understanding of the system.  In [The Guide](http://transitive.io/guide.html) we create a custom `BroadcastingData` store and a custom `LiveRender`, so you can get on your way to building tricked-out realtime awesomeness.
 
 #### Customizeability
 
-The events your data broadcasts and the kinds of updates you'd like to make are both very application specific, so every effort has been made to streamline the process of creating custom broadcasting data stores and LiveRenders.  Transitive provides the structure and framework so you can focus on your application-specifc code
+The events your data broadcasts and the kinds of updates you'd like to make are both very application specific, so every effort has been made to streamline the process of creating custom BroadcastingData stores and LiveRenders.  Transitive provides the structure and framework so you can focus on your application-specific code.  Transitive determines the flow, you fill in the good bits.
 
-I'd like to support an explicit plugin system soon.  If you have ideas about this, or would like to pitch in, please email me.
+The default configuration is pretty good, but you may need to [customize it](options.html).
+
+I'd like to support an explicit plugin system soon.  If you have ideas about this, or would like to pitch in, please [email me](mailto:aaron.blohowiak@gmail.com).
 
 #### Limited Scope
 
@@ -49,22 +51,28 @@ Transitive *does not* provide an ORM, permissions framework, django_admin-style 
 
 ### How does it work?
 
-#### User requests a page:
+Here, we'll go over how the view gets rendered and updated.  First, we have three diagrams of the process and then an [entity-diagram](#entities) of how the view objects relate to each other. 
+
+
+#### User requests a page
 ![Initial Render](img/page_render.png)
  
- * [Views](views.html)
- * [Templates](views.html#templates)
- * [ViewBindings](views.html#viewBinding)
- * [RenderContext](views.html#renderContext)
-
+ * [Views](views.html) - overview of how views are constructed
+ * [Templates](views.html#templates) - functions that turn data into html
+ * [LiveRenders](views.html#liveRender) - updates the page when data changes
+ * [ViewBindings](views.html#viewBinding) - connects events to updaters and divs
+ * [RenderContext](views.html#renderContext) - orchestrates the creation of a page by passing data through a template and collecting the ViewBindings that result.
 
 #### The page loads in the browser
 ![Page Loads] (img/page_load.png)
 
- * [ViewBindings](views.html#viewBinding)
- * [LiveRender](views.html#liveRender)
+ * [Push-It](http://github.com/aaronblohowiak/Push-It)
 
 #### The Data Changes
 ![Data changes] (img/live_render.png)
 
- * [LiveRender](views.html#liveRender)
+#### Entities
+
+If you are into entity diagrams, this should explain how the view objects are related.  Most of these relationships are automatic or implicit, and ViewBindings are created automatically when you call a LiveRender from a template.
+
+![Transitive view objects](img/view_objects.png)

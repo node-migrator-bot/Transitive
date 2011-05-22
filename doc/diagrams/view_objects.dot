@@ -1,0 +1,52 @@
+/*digraph broadcasting{
+  template[label="Template"];
+  vb[label="ViewBinding"];
+  rc[label="RenderContext"];
+  lr[label="LiveRender"];
+  
+  rc -> template[label="passes data \n to render divs"];
+  rc -> vb[label="collects"];
+  rc -> DOM[label="accumulates"];
+  DOM -> div[label="is composed of"];
+  
+  
+  vb -> div[label="stores id of"];
+  vb -> lr[label="stores name of"];
+  vb -> template[label="stores name of"];
+  
+  p[label="prepare"];
+  u[label="update"];
+  lr -> p[label="is composed of"];
+  lr -> u[label="is composed of"];
+
+  template -> lr[label="has many"];
+  
+  template -> div[label="emits many"];
+} */
+
+digraph entities{
+  data -> rc [label="create a page by passing user data\n to a rendercontext's render method"]
+  rc[label="RenderContext"];
+  lr[label="LiveRender"];
+  vb[label="ViewBinding"];
+  
+  rl[label="renderLive"]
+  r[label="render"]
+  
+  rl -> lr[label="passes data\nand template name"];
+  
+  template -> html[label="returns"]
+  template -> rc [label="calls render\nor renderLive"]
+
+  rl -> vb [label="emits when called"]
+  rc -> rl[label="has method\naccepts liverender name, template name and data"]
+  rc -> r[label="has method\n accepts template name and data"]
+  r -> template[label="calls to render html from data"]
+  
+  lr -> template[label="passes data\nwraps html"]
+  
+  vb -> div[label="stores id of"];
+  vb -> lr[label="stores name of"];
+  vb -> template[label="stores name of"];
+  
+}

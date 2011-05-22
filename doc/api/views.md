@@ -1,19 +1,27 @@
 ## Views
 
-Views are the combination of [Templates](#templates), [LiveRenders](#liveRender) and a [RenderContext](#renderContext).  The server compiles your [Templates](#templates) during the [Boot](boot.html) process.  Normally, you will create your own Templates and LiveRenders by creating files in the [appropriate folders](magic_values.html), and will interact with your views through [Transitive.Views](#transitive.Views). 
+Views are the combination of [Templates](#templates), [LiveRenders](#liveRender) and a [RenderContext](#renderContext).  The server compiles your [Templates](#templates) during the [Boot](boot.html) process.  Normally, you will create your own Templates and LiveRenders by creating files in the [appropriate folders](options.html), and will interact with your views through [Transitive.Views](#transitive.Views).
 
 ### Templates
 By default, templates reside in options.root + "/templates"
 
 #### compilation
 
-Templates are compiled by [Shared-Views](http://github.com/aaronblohowiak/shared-views).  Filenames are converted to template names by removing the template folder path and the file extension from the file name.  For instance, you'd render "/var/www/example.com/templates/user/profile.haml" by calling `render("user/profile", user)`.  There is *no support* for relative view names.  You may specify your own `filenameToTemplateName(filename)` function by overriding the default. 
+Templates are compiled by [Shared-Views](http://github.com/aaronblohowiak/shared-views) and written to a node-compatible module file in `options.directories.generated` named `template.js`.  Filenames are converted to template names by removing the template folder path and the file extension from the file name.  For instance, you'd render "/var/www/example.com/templates/user/profile.haml" by calling `render("user/profile", user)`.  There is *no support* for relative view names.  
 
-To override the default configuration, pass a valid Shared-Views configuration to `Transitive.initialize(scope, options)` as `options.sharedViewConfig`.
+Templates are converted to functions using a `template engine` (haml, underscore, etc.) We pick the template engine based on the file extension.
 
 #### engines
 
-By default, Transitive supports [Haml-js](http://github.com/creationix/haml-js) with `escapeHtmlByDefault` set to `true` and a custom html escaping function.
+By default, Transitive supports [Haml-js](http://github.com/creationix/haml-js) with `escapeHtmlByDefault` set to `true` and a custom html escaping function.  Transitive supports [underscore](http://documentcloud.github.com/underscore/#template) templates, and finally [markdown](https://github.com/evilstreak/markdown-js) which is useful for content pages.
+
+To provide support for additional engines, add a file extension/rendering function pair to `options.templateEngines`.
+
+Example:
+
+    options.templateEngines["u"] = function(source){
+      return require("underscore").template(source);
+    }
 
 Engines *MUST* accept the template source and return a function that accepts a locals object and returns html.  The function will be executed with a [RenderContext](#renderContext) as `this`.
 
@@ -23,7 +31,7 @@ Engines *MUST* accept the template source and return a function that accepts a l
 
 If called on the client:
 
-`render` creates a RenderContext, and calls its `render(templateName, data)`.  It will return immediately with the html and set up a setTimeout() to process any new ViewBindings. 
+`render` creates a RenderContext, and calls its `render(templateName, data)`.  It will return immediately with the html and set up a setTimeout() to process any new [ViewBindings](#viewBinding). 
 
 If called on the server:
 
@@ -79,18 +87,16 @@ called when the server sends an event about data. modify the current page.
 
 #### name
 
-The (unique) name of the LiveRender
-
+The (unique!) name of the LiveRender
 
 ### RenderContext
- You should not have to create a RenderContext. It is documented here because it is `this` in a template.  If you would like to render a template and you are **not** already within a template, please use `Transitive.Views.renderPage` or `Transitive.Views.render` if you are on the server or the client, respectively -- these functions will create a RenderContext for you and will handle any resulting ViewBindings. 
+ You should not have to create a RenderContext. It is documented here because it is `this` in a template.  If you would like to render a template and you are **not** already within a template, please use `Transitive.Views.renderPage` or `Transitive.Views.render` if you are on the server or the client, respectively -- these functions will create a RenderContext for you and will handle any resulting [ViewBindings](#viewBinding). 
 
 #### render(templateName, data)
 renders `templateName` with the given `data`, returning HTML.
 
 #### renderLive(name, templateName, data)
-Gets the LiveRender with the name of `name` and calls it's `prepare(templateName, data)` to get the content. Then, it wraps that content with a new div that has a unique id and a class of `name`. Finally, it creates a new ViewBinding and adds it to `this.bindings`.  
-
+Gets the LiveRender with the name of `name` and calls it's `prepare(templateName, data)` to get the content. Then, it wraps that content with a new div that has a unique id and a class of `name`. Finally, it creates a new ViewBinding and adds it to `this.bindings`.
   
 ### ViewBinding
  ViewBindings contain the information that ties together a DOM element, a template and an event handler to a stream of events from the server.  ViewBindings are automatically added to the RenderContext's bindings array when renderLive is called.

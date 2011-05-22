@@ -24,7 +24,7 @@ Sharing views between the server and the client is one of the key strengths of T
 
 Transitive views are composed of:
 
- * Templates - Haml-js, underscore (ejs) or ( mustache ?) by default
+ * [Templates](views.html#templates) - Haml-js (.haml), underscore (.u)  or markdown (.md) by default
  * [LiveRenders](views.html#liveRender) - Event handlers that update the page when your data changes.
  * [RenderContext](views.html#renderContext) & ViewBindings - the glue that makes Templates and LiveRenders work. 
 
@@ -34,7 +34,7 @@ On the server, you'll have a `renderPage(templateName, locals, layoutName)` whic
 
 ####  Assets:
 
-Transitive makes your compiled views and liveRenders available to the browser using [browserify](https://github.com/substack/node-browserify).
+Transitive makes your compiled templates and LiveRenders available to the browser using [browserify](https://github.com/substack/node-browserify).
 
 ### Initialize Server
 
