@@ -1,0 +1,7 @@
+%h1 This is the home.
+!= this.render("onThe", {place: "server"})
+
+#target
+
+:script
+  document.getElementById("target").innerHTML = Transitive.Views.render("onThe", {place: "browser"});

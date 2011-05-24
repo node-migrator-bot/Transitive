@@ -10,7 +10,7 @@
   * generated
   * generatedPublic - auto-served
   
-### writeTemplates
+### compileViews
 
 true - should the compile step write out a template to `options.generated + "/templates.js"` ?
 
