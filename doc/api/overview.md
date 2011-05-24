@@ -76,3 +76,4 @@ Here, we'll go over how the view gets rendered and updated.  First, we have thre
 If you are into entity diagrams, this should explain how the view objects are related.  Most of these relationships are automatic or implicit, and ViewBindings are created automatically when you call a LiveRender from a template.
 
 ![Transitive view objects](img/view_objects.png)
+
