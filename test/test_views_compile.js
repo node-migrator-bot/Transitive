@@ -21,7 +21,9 @@ exports["test views compile paths"] = function(test, assert){
   var paths = x.Views.compile.filenamesForPaths("templates");
   assert.deepEqual(paths, [
     "templates/layout.haml",
+    "templates/page.haml",
     "templates/partial.u",
+    "templates/stream_item.haml",
     "templates/user/profile.haml",
     "templates/whatever.md"
   ]);
@@ -50,9 +52,24 @@ exports["test render page"] = function(test, assert){
   
   var html = x.Views.renderPage("user/profile", {name:"aaron"});
   
+  assert.ok(html.match(/h1>AARON/));
+  assert.ok(html.match(/pageData = \{/));
+  
+  test.finish();
+};
+
+exports["test renderLive"] = function(test, assert){
+  var functions = x.Views.compile(x.options);
+  x.Views.templates = functions;
+  var user = {name:"aaron"};
+  var items = [];
+  items.id = "itemsId0000";
+  
+  var html = x.Views.renderPage("page", {user:user, items:items});
+  
   console.log(html);
   
-  assert.ok(html.match(/h1>AARON/));
+  assert.ok(html.match(/Hello aaron/));
   assert.ok(html.match(/pageData = \{/));
   
   test.finish();
