@@ -15,12 +15,13 @@
     "markdown":"0.2.1"
   },
   "dependencies": {
-     "push-it": "0.0.1pre8",
+     "push-it": "0.0.2",
      "shared-views": "0.7.0",
      "uuid-pure": "1.0.10",
      "connect":"1.4.1",
      "findit":"0.0.3",
-     "browserify":"0.4.1"
+     "browserify":"0.4.0",
+     "nopt":"1.0.5"
    },
   "bin": {"transitive" : "./cli.js"},
   "dont_announce": true

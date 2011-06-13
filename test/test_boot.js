@@ -1,7 +1,7 @@
 var x = new (require("transitive"))(),
     fs = require("fs");
 
-var options = {};
+var options = {createServer:false};
 var generated = process.cwd()+"/test_temp/"+require("uuid-pure").newId();
 fs.mkdirSync(generated, "777");
 fs.mkdirSync(generated+"/public", "777");
