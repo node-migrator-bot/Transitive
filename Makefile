@@ -8,6 +8,10 @@ apidoc_dirs = build/doc build/doc/api/ build/doc/api/assets build/doc/api/img
 
 apiassets = $(subst api_assets,api/assets,$(addprefix build/,$(wildcard doc/api_assets/*)))
 
+all: test doc
+
+doc: clean_diags html diags
+
 clean_doc:
 	rm -rf build/doc/api/*.html
 	rm -rf build/doc/assets
@@ -25,8 +29,6 @@ diags: clean_diags $(diagrams)
 
 html: clean_doc $(apidoc_dirs) magic_values $(apidocs) $(apiassets)
 
-doc: clean_diags html diags
-
 build/doc/api/%.html: doc/api/%.md
 	node tools/doctool.js doc/template.html $< > $@
 
@@ -39,7 +41,6 @@ build/doc/%:
 
 build/doc/api/assets/%: doc/api_assets/% build/doc/api/assets/
 	cp $< $@
-
 
 test_files = $(wildcard test/test_*.js)
 

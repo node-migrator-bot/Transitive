@@ -9,7 +9,7 @@ fs.mkdirSync(generated+"/public", "777");
 
 exports.setUp = function (test, assert) {
   process.chdir("./test/views");
-  options = x.loadOptions({});
+  options = x.loadOptions(options);
 
   options.directories.generated = generated;
   options.directories.generatedPublic = generated+"/public";
