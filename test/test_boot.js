@@ -16,10 +16,12 @@ exports.setUp = function (test, assert) {
   
   options.mergeDefault = false;
   x.options = options;
+  console.log(x.options.createServer);
   test.finish();
 };
 
 exports["test boot can work okay"] = function(test, assert){
+  console.log(x.options.createServer);
   x.boot(this, options);
   assert.ok(x.options.root);
   test.finish();
