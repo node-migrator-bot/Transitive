@@ -25,5 +25,13 @@ module.exports = RenderContext = function (templates){
   //    return output;
   //  };
   
+  context.escape = function(text) {
+    return (text + "").
+      replace(/&/g, "&amp;").
+      replace(/</g, "&lt;").
+      replace(/>/g, "&gt;").
+      replace(/\"/g, "&quot;");
+  };
+  
   return context;
 };
