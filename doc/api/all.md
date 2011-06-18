@@ -10,4 +10,6 @@
 ---
 @include options
 ---
+@include cli
+---
 @include credits

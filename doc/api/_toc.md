@@ -8,7 +8,8 @@
  * [Templates](views.html#templates)
  * [LiveRenders](views.html#liveRender)
 * [Persistence](persistence.html)
-* [Options](options.html)
+* [Command Line Options](cli.html)
+* [Options and Defaults](options.html)
 * [Credits](credits.html)
 
 
