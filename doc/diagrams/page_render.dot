@@ -17,5 +17,5 @@ digraph page_render{
  
   h -> l [label="page content \n inserted in layout"]
   b -> l [label="ViewBindings embedded as \n $pageData in script tag"]
-  l -> u [label="fully rendered page\n flushed to user"]
+  //l -> u [label="fully rendered page\n flushed to user"]
 }

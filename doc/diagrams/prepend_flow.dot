@@ -1,0 +1,20 @@
+digraph elements{
+  render[label="Transitive.Views.render"]
+  "this.liveRender"[label="= this.liveRender('prepend', 'item', items)"]
+  prepare[label="prepend.prepare('item', items)"]
+  bd[label="BroadcastingData"]
+  update[label="prepend.update(newItem)"]
+  
+  render -> "this.liveRender"[label="calls"]
+  "this.liveRender" -> prepare[label="calls"]
+  
+  prepare -> "Original HTML"[label="returns"]
+  
+  "Original HTML" -> bd [label="subscribes & binds \n'prepend.update' to items.id\nwhen client loads"]
+  
+  "Somebody else creates a new item" -> bd[color="#009900" label="publishes update to items.id"]
+  bd -> update [label="calls handler *in client*"]
+  
+  update -> "Updated HTML" [label="Inserts newItem into html"]
+  
+}

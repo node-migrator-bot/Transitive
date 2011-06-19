@@ -67,11 +67,13 @@ Here is an example LiveRender that prepends updates to the top of a DOM element,
       }
     }
 
+Here is an annotated version of the series of function calls that happen when you'd use prepend.
 
+![Prepend flow](img/prepend_flow.png)
 
 #### prepare(templateName, data)
 
-called when the HTML is initially rendered.  At a minimum, you should return the rendered template with the data.  May be called on the server during the initial page load or on the client if the client calls `renderLive`.
+called when the HTML is initially rendered.  At a minimum, you should return the rendered template with the initial data.  May be called on the server during the initial page load or on the client if the client calls `renderLive`.
     
       prepare: function(templateName, data){
         return this.render(templateName, data);

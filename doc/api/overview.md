@@ -14,12 +14,12 @@ Transitive has two key features:
 Additionally, Transitive provides:
 
   * Reasonable Defaults
-  * Customizeability
+  * Customizability
   * Limited Scope
 
 ### Key Features
 
- BroadcastingData lets everybody who cares when something changes. Live Renders keep the browser's view up to date as the data changes.
+ BroadcastingData lets everybody who cares see when something changes. Live Renders keep the browser's view up to date as the data changes.
 
 #### BroadcastingData
 
@@ -37,7 +37,7 @@ LiveRenders update the DOM when there is an update to the data. [LiveRender docu
 
 Transitive provides an example BroadcastingData store (backed by redis) and example LiveRenders (replace, prepend, addRemove), but you should consider these examples and feel free to implement your own once you have a basic understanding of the system.  In [The Guide](http://transitive.io/guide.html) we create a custom `BroadcastingData` store and a custom `LiveRender`, so you can get on your way to building tricked-out realtime awesomeness.
 
-#### Customizeability
+#### Customizability
 
 The events your data broadcasts and the kinds of updates you'd like to make are both very application specific, so every effort has been made to streamline the process of creating custom BroadcastingData stores and LiveRenders.  Transitive provides the structure and framework so you can focus on your application-specific code.  Transitive determines the flow, you fill in the good bits.
 
