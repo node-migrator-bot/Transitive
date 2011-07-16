@@ -1,4 +1,4 @@
-var x = new (require("transitive"))(),
+var x = new (require("../index"))(),
     fs = require("fs");
 
 var options = {createServer:false};

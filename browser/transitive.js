@@ -12,16 +12,17 @@ Transitive.Views.RenderContext = require("./render_context.js");
 Transitive.Views.render = function(templateName, scope){
   var rc = new this.RenderContext(this.templates);
   var html = rc.render(templateName, scope);
-  //TODO: handle rc.data
+
+  for (var i = rc.data.bindings.length - 1; i >= 0; i--){
+    initViewBinding(rc.data.bindings[i]);
+  }
+  
+  for (var j = rc.data.subscribe.length - 1; j >= 0; j--){
+    Transitive.pushIt.subscribe(rc.subscribe[j]);
+  }
+  
   return html;
 };
-
-function initViewBinding(viewBinding) {
-  viewBinding.element = document.getElementById(viewBinding.elmId);
-  this.on(viewBinding.objId, function(data){
-    Transitive.templates.liveRenders[viewBinding.liveRenderName].update.call(binding, data);
-  });
-}
 
 Transitive.boot = function(){
   var elm, binding, self=this;
@@ -39,4 +40,10 @@ Transitive.boot = function(){
   };
 };
 
+function initViewBinding(viewBinding) {
+  viewBinding.element = document.getElementById(viewBinding.elmId);
+  this.on(viewBinding.objId, function(data){
+    Transitive.templates.liveRenders[viewBinding.liveRenderName].update.call(binding, data);
+  });
+}
 module.exports = Transitive;

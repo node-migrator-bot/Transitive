@@ -1,34 +1,55 @@
 ## Persistence.
 
-** Persistence & Domain Model, Not ORM **
+Let's draw a distinction between your persistence layer and your domain model.  Your persistence layer is how you save your data in case of power failure, and your domain model is where you put your business logic (things like relationships, validations, state machines, et cetera.)  Many MVC frameworks combine persistence layer and the domain model, and they call it the Model. Transitive doesn't give you this.
 
-Let's draw a distinction between your persistence layer and your domain model.  Your persistence layer is how you save your data in case of power failure, and your domain model is where you put your business logic (things like relationships, validations, state machines, et cetera.)  Many MVC frameworks combine persistence and the domain model, and they call it an ORM.  Transitive does not provide a traditional ORM.  For the domain model, there is a lightweight Model provided for conveinence, [Model.Basic](models.html#basic) but you are encouraged to build or use something more robust if it does not fit your needs.
+Instead, Transitive focuses on percolating updates from your persistence layer out to the browsers that care.
 
-*Transitive deals with moving datastructures around to interested parties.*
+You might even use Transitive in front of an API developed in another language (or many languages if you are developing with a SOA.)
 
-Modern applications use many different kinds of "databases" for different kinds of data -- RDBMS, Document Stores, Redis, HBase, and even using RESTful APIs to other services.  Each of these has different transactional semantics and unique features.  Transitive is mostly ambivelant about how you persist your data.  Transitive just reqiures that your perisistence layer emits events when things change. There is a least-common-denominator abstraction for load & save by id.  
+**Transitive deals with moving datastructures around to interested parties.**
 
-You can use persistence layers that don't have this ability, but then you'll have to implement it in the application layer, which is pretty easy. [Guide: Implementing a Broadcasting Data store]() 
+Modern applications use many different kinds of "databases" for different kinds of data -- RDBMS, Document Stores, Redis, HBase, and even RESTful APIs to other services.  Each of these has different transactional semantics and unique features.  Transitive is mostly ambivalent about how you persist your data.  The realtime features of Transitive simply require that your persistence layer publishes events when things change.
 
-** Basic Models **
+For convenience, there is a least-common-denominator abstraction for load & save by id, add/remove from a set, and `tail`.  Implementations for in-memory and Redis are supported and are intended to serve as examples. I fully expect to augment them with optimistic locking.
 
-Basic Models Have:
+For now, you are encouraged and expected to write your own domain model and persistence layer. Eventually, I assume that a prominent effort will become the "mainstream" Model layer for Transitive.  
 
-  * Identity
+** Example Persistence **
+
+Example Persistence has:
+
+  * Identity - a universal resource identifier, or otherwise unique id.
+  * Persistence - the ability to save and restore.
+
+Example Persistence *does not* have:
+
+  * Authorization
   * Validation
-  * Persistence
-
-Basic Models *do not* have:
-
-  * The ability to load related models
+  * Relationships
   * State Machines
-  * Serialization
   * Presentation helpers
-  * Integrations with external resources
-  * Algorithms
+  * Transactions
+  * Iterators
+  * A kitchen sink.
 
-The basic case is that you want to save and load stuff, maybe running it through a validation before you save.  That's what you get out-of-the-box with Transitive.   
+The basic case is that you want to save and load stuff. That's what the example persistence layer gives you. **Please** create and share your own ideas and libraries.
 
-### Broadcasting Data
+## Broadcasting Data
 
+Simply:
 
+  When data changes, publish an event on a channel where the channel name is the id of the item that has changed.
+
+*What about collections?*
+
+In Transitive, each collection has a unique id as well.  So if a collection changes, publish an event to a channel that has the id of that collection.
+
+**Guidelines for ids:**
+
+Two extremes: using purely random ids and using full URIs for ids.  Either would work, but purely random ids make debugging harder and full URIs contain the scheme (http/https), domain and query parameters.  I suggest that you follow a simple URI-style scheme "/users/3e9Dv8j93h391jW1X09_o2".  
+
+For collections, you can either give them a top-level representation, "/booklists/9" or possibly nest them if they are always accessed through a single parent object, "/users/3e9Dv8j93h391jW1X09_o2/booklist". 
+
+## newId(length=22)
+
+Returns `length` random chars from the base64uri character set: (a-zA-Z0-9 _ and -). 22 is the default because it provides 16 bytes of random information, similar to a UUID.

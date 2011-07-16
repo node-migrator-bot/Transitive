@@ -1,4 +1,4 @@
-var x = new (require("transitive"))(),
+var x = new (require("../index"))(),
     fs = require("fs");
 
 x.options = {};
@@ -32,6 +32,15 @@ exports["test views compile paths"] = function(test, assert){
 
 exports["test compiler will compile"] = function(test, assert){
   var functions = x.Views.compile(x.options);
+  
+  functions.escape = function(text) {
+    return (text + "").
+      replace(/&/g, "&amp;").
+      replace(/</g, "&lt;").
+      replace(/>/g, "&gt;").
+      replace(/\"/g, "&quot;");
+  };
+  
   testViews(functions, assert);
   test.finish();
 };
