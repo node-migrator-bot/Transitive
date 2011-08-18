@@ -6,6 +6,8 @@
 ---
 @include views.md
 ---
+@include controllers
+---
 @include persistence
 ---
 @include options

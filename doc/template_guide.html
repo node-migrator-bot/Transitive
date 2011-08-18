@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{section}}Transitive.io Guide</title>
+  <link type="image/x-icon" rel="icon" href="/favicon.ico" />
+  <link type="image/x-icon" rel="shortcut icon" href="/favicon.ico" />
+  <link rel="stylesheet" href="assets/style.css" type="text/css" media="all" />
+  <link rel="stylesheet" href="assets/sh.css" type="text/css" media="all"/>
+  <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-24042140-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+  </script>
+</head>
+<body>
+  <div id="container">
+    <header>
+      <h1>Transitive.io Documentation &amp; API</h1>
+      <div id="gtoc">
+        <p><a href="http://transitive.io">Transitive.io</a> | <a href="index.html">Guide Home</a> | <a href="all.html">View on single page</a></p>
+      </div>
+      <hr />
+    </header>
+    {{content}}
+      <hr />
+      <div id="gtoc">
+        <p><a href="http://transitive.io">Transitive Homepage</a> | <a href="index.html">Guide TOC</a> | <a href="all.html">Single Page</a></p>
+      </div>
+      For help, please ask the <a href="http://groups.google.com/group/transitive">mailing list</a>. 
+      For bugs, please use <a href="https://github.com/transitive/transitive/issues">Github Issues</a>.
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+          (function() {
+              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+              dsq.src = 'http://transitiveio.disqus.com/embed.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+      </script>
+  </div>
+</body>
+</html>

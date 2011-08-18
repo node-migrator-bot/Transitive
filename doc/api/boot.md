@@ -41,14 +41,14 @@ By default, Transitive makes your compiled templates and LiveRenders available t
 
 There are simple functions to help you manage the differing needs between development and production, so your code is easier to debug in development, but properly compact in production (of course, this includes supporting asset hosts / CDN.)
 
-[Transitive Asset Management in detail.](assets.md)
+[Transitive Asset Management in detail.](assets.html)
 
 ### Initialize Server
 
 Creates a new http server using `connect()`. Adds connect.static middleware for "public" and "generatedPublic" [directories](options.html).  
-
-TODO: Starts the server listening on options.port, 3030 by default. Initializes Push-It with the server and options.pi. 
+``
+Starts the server listening on `options.port`, `3030` by default. Initializes Push-It with the server and options.pi. 
 
 ### Setup the router
 
-Transitive's router is currently very limited.
+Transitive's router is currently very limited, using the `connect` router middleware.

@@ -7,6 +7,7 @@
 * [Views](views.html)
  * [Templates](views.html#templates)
  * [LiveRenders](views.html#liveRender)
+* [Controllers](controllers.html)
 * [Persistence](persistence.html)
 * [Options and Defaults](options.html)
 * [Command Line Interface](cli.html)

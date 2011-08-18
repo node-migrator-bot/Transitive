@@ -38,7 +38,9 @@ If called on the server:
 `render` will render `templateName` with `data`.  If `templateName` or any sub-templates (partials) call `renderLive`, an error will be thrown.  To render templates with layouts on the server, please use `renderPage`.
 
 #### renderPage(templateName, data, layoutName)
-renderPage creates a new RenderContext and uses it to render templateName with data.locals.  It passes the result to 
+renderPage creates a new RenderContext and uses it to render `templateName` with `data.locals`.  It then renders `layoutName` with the content and data used to render the page.
+
+`layoutName` defaults to "layout"
 
 ### LiveRender
 By default, LiveRenders are stored in `options.root+"/live-renders"`
@@ -113,4 +115,7 @@ On the client, it will also have:
  * `element`: a cached `jQuery('#'+elementId)` for performance
 
 You should not have to create a ViewBinding.  It is documented here as it is the `this` context for a LiveRender's `update` method.
+
+
+
  
