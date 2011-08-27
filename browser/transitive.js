@@ -36,14 +36,21 @@ Transitive.boot = function(){
   });
 
   this.pushIt.onMessageReceived = function(message){
-    Transitive.emit(message.channel, message);
+    Transitive.emit(message.channel, message.data);
   };
 };
 
 function initViewBinding(viewBinding) {
-  viewBinding.element = document.getElementById(viewBinding.elmId);
-  this.on(viewBinding.objId, function(data){
-    Transitive.templates.liveRenders[viewBinding.liveRenderName].update.call(binding, data);
+  var liveRender = Transitive.Views.templates.liveRenders[viewBinding.liveRenderName];
+
+  viewBinding.element = $(document.getElementById(viewBinding.elmId));
+  
+  if(liveRender.hasOwnProperty("init")){
+    liveRender.init.call(viewBinding, $pageData.objectsReferenced[viewBinding.objId]);
+  }
+  
+  Transitive.on(viewBinding.objId, function(data){
+    liveRender.update.call(viewBinding, data);
   });
 }
 module.exports = Transitive;

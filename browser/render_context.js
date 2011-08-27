@@ -15,7 +15,7 @@ module.exports = RenderContext = function (templates){
   context.renderLive = function(tetherName, templateName, obj){
      var data = this.data;
   
-     data.subscribe.push(obj.id);
+     data.subscribe.push(obj.id.toString());
      data.objectsReferenced[obj.id] = obj;
   
      var binding = ViewBinding(templateName, obj.id, tetherName); 
