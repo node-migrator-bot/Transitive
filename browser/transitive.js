@@ -1,4 +1,5 @@
 require("./jquery"); //currently, pollutes global scope!
+require("./sockjs.min.js"); //currently, pollutes global scope!
 
 var EventEmitter = require('events').EventEmitter;
 var PushIt = require("./push-it.js").PushIt;
