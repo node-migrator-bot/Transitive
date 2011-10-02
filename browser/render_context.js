@@ -8,6 +8,8 @@ module.exports = RenderContext = function (templates){
     bindings: []
   };
   
+  context.app = {};
+  
   context.render = function(templateName, locals){
     return this[templateName](locals);
   };

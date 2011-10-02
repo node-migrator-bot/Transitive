@@ -1,7 +1,7 @@
 {
   "name": "transitive",
   "description": "very rough version. please ignore",
-  "version": "0.0.0pre28",
+  "version": "0.0.0pre29",
   "repository": "git://github.com/Transitive/Transitive.git",
   "author": "Aaron Blohowiak <aaron.blohowiak@gmail.com>",
   "directories": {
